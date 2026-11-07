@@ -1,0 +1,29 @@
+{
+  "train": {
+    "rows": 14365,
+    "neg_type_counts": {
+      "same_piece_same_pitch": 14318,
+      "same_piece_random": 47
+    },
+    "same_piece": 14365,
+    "same_pitch": 14318
+  },
+  "val": {
+    "rows": 2430,
+    "neg_type_counts": {
+      "same_piece_same_pitch": 2416,
+      "same_piece_random": 14
+    },
+    "same_piece": 2430,
+    "same_pitch": 2416
+  },
+  "test": {
+    "rows": 2018,
+    "neg_type_counts": {
+      "same_piece_same_pitch": 2004,
+      "same_piece_random": 14
+    },
+    "same_piece": 2018,
+    "same_pitch": 2004
+  }
+}

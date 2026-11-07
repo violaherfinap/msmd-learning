@@ -1,0 +1,26 @@
+# Dataset and large artifacts
+msmd_aug_v1-1_no-audio/
+msmd_aug_v1-1_no-audio.zip
+data/processed/*.npy
+data/processed/*.npz
+data/processed/*.pt
+data/processed/*.pth
+data/processed/*.tar
+data/processed/*.pkl
+data/processed/*.joblib
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Notebook / Jupyter
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

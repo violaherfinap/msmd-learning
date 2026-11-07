@@ -1,0 +1,22 @@
+{
+  "generated_at_utc": "2026-11-07T09:58:23.638487+00:00",
+  "python": "3.10.0 (tags/v3.10.0:b494f59, Oct  4 2021, 19:00:18) [MSC v.1929 64 bit (AMD64)]",
+  "python_executable": "C:\\Program Files\\Python310\\python.exe",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "seed": 42,
+  "packages": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "Pillow": "12.1.1",
+    "matplotlib": "3.10.8",
+    "nbformat": "5.10.4",
+    "nbconvert": "7.17.1"
+  },
+  "artifacts": {
+    "crop_h": 200,
+    "crop_w": 160,
+    "win_frames": 42,
+    "spec_bins": 92,
+    "fps": 20
+  }
+}

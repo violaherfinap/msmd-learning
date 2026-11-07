@@ -1,0 +1,29 @@
+{
+  "crop_w": 160,
+  "crop_h": 200,
+  "win_frames": 42,
+  "fps": 20,
+  "train_perfs_per_note": 2,
+  "excluded_pieces": [
+    "GobbaertsL__Les_Etoiles_dOr_No1__Les_Etoiles_dOr_No1"
+  ],
+  "split_crops": {
+    "train": 14365,
+    "val": 2430,
+    "test": 2018
+  },
+  "split_windows": {
+    "train": 28730,
+    "val": 9720,
+    "test": 8072
+  },
+  "split_pairs": {
+    "train": 57460,
+    "val": 19440,
+    "test": 16144
+  },
+  "image_mean": 0.8936307257819597,
+  "image_std": 0.2651335941081754,
+  "checks_total": 63,
+  "checks_fail": 0
+}

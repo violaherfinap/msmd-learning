@@ -1,0 +1,64 @@
+check,status,detail
+train: crop rows = tensor,PASS,14365 vs 14365
+train: window rows = tensor,PASS,28730 vs 28730
+train: crop shape,PASS,"(200, 160, 1)"
+train: window shape,PASS,"(42, 92)"
+train: crop dtype,PASS,uint8
+train: window dtype,PASS,float16
+train: finite,PASS,
+train: notehead_id unik,PASS,
+train: window_id unik,PASS,
+train: crop_row order,PASS,
+train: window_row order,PASS,
+train: pair notehead valid,PASS,
+train: pair window valid,PASS,
+train: positif notehead sama,PASS,
+train: negatif beda piece,PASS,
+train: negatif beda work_group,PASS,
+train: label seimbang,PASS,"pos=28730, neg=28730"
+train: onset di dalam window,PASS,
+train: padding nonnegatif,PASS,
+train: tidak ada crop all-white,PASS,min ink=0.0578
+val: crop rows = tensor,PASS,2430 vs 2430
+val: window rows = tensor,PASS,9720 vs 9720
+val: crop shape,PASS,"(200, 160, 1)"
+val: window shape,PASS,"(42, 92)"
+val: crop dtype,PASS,uint8
+val: window dtype,PASS,float16
+val: finite,PASS,
+val: notehead_id unik,PASS,
+val: window_id unik,PASS,
+val: crop_row order,PASS,
+val: window_row order,PASS,
+val: pair notehead valid,PASS,
+val: pair window valid,PASS,
+val: positif notehead sama,PASS,
+val: negatif beda piece,PASS,
+val: negatif beda work_group,PASS,
+val: label seimbang,PASS,"pos=9720, neg=9720"
+val: onset di dalam window,PASS,
+val: padding nonnegatif,PASS,
+val: tidak ada crop all-white,PASS,min ink=0.0683
+test: crop rows = tensor,PASS,2018 vs 2018
+test: window rows = tensor,PASS,8072 vs 8072
+test: crop shape,PASS,"(200, 160, 1)"
+test: window shape,PASS,"(42, 92)"
+test: crop dtype,PASS,uint8
+test: window dtype,PASS,float16
+test: finite,PASS,
+test: notehead_id unik,PASS,
+test: window_id unik,PASS,
+test: crop_row order,PASS,
+test: window_row order,PASS,
+test: pair notehead valid,PASS,
+test: pair window valid,PASS,
+test: positif notehead sama,PASS,
+test: negatif beda piece,PASS,
+test: negatif beda work_group,PASS,
+test: label seimbang,PASS,"pos=8072, neg=8072"
+test: onset di dalam window,PASS,
+test: padding nonnegatif,PASS,
+test: tidak ada crop all-white,PASS,min ink=0.0425
+split train vs val disjoint,PASS,
+split train vs test disjoint,PASS,
+split val vs test disjoint,PASS,

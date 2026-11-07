@@ -1,0 +1,4 @@
+piece,split,n_pages,n_noteheads,n_mapped_noteheads,n_tied_skipped,n_missing_event,n_valid_windows,n_edge_crops,pct_mapped
+ChopinFF__B130__TroisNouvellesEtudes_Chopin_n1,test,3,829,769,0,240,3076,0,92.76236429433052
+MagnenatS__variations-automne__variations-automne,test,2,561,552,9,36,2208,0,98.39572192513369
+KumarR__lani__lani,test,3,752,697,48,220,2788,0,92.68617021276596
