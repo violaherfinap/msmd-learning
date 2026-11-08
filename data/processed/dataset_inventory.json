@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-11-08T09:20:25.595826+00:00",
+  "raw_dir": "D:\\SEMESTER 5\\Machine Learning\\msmd-learning\\msmd_aug_v1-1_no-audio",
+  "feature_files": {
+    "spec": ".flac_spec.npy",
+    "midi": ".flac_midi.npy",
+    "notes": ".flac_notes.npy",
+    "onsets": ".flac_onsets.npy",
+    "durations": ".flac_durations.npy"
+  },
+  "total_pieces": 697,
+  "total_performances": 9015,
+  "piece_status_counts": {
+    "complete": 600,
+    "empty_performances": 96,
+    "missing_all_features": 1
+  },
+  "complete_pieces": 600,
+  "empty_performance_pieces": 96,
+  "feature_incomplete_pieces": 1,
+  "complete_performances": 9000,
+  "incomplete_performances": 15,
+  "outputs": {
+    "pieces": "data\\processed\\dataset_inventory.parquet",
+    "performances": "data\\processed\\dataset_performances.parquet"
+  }
+}

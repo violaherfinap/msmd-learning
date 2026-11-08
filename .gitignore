@@ -1,6 +1,9 @@
 # Dataset and large artifacts
 msmd_aug_v1-1_no-audio/
 msmd_aug_v1-1_no-audio.zip
+data/backups/
+logs/
+*.tmp
 data/processed/*.npy
 data/processed/*.npz
 data/processed/*.pt
