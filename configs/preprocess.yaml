@@ -1,0 +1,36 @@
+project_root: .
+raw_dir: msmd_aug_v1-1_no-audio
+data_dir: data
+processed_dir: data/processed
+reports_dir: reports
+figures_dir: reports/figures
+logs_dir: logs
+
+seed: 42
+fps: 20
+spec_bins: 92
+win_frames: 42
+crop_w: 160
+crop_h: 200
+train_perfs_per_note: 2
+neg_per_pos: 1
+
+subset_pieces: data/subset_pieces.csv
+subset_performances: data/subset_performances.csv
+splits: data/splits.csv
+norm_stats: data/processed/norm_stats.json
+
+task1:
+  page_size: 256
+  system_crop_h: 128
+  system_crop_w: 512
+  system_margin: 4
+  negatives_per_positive: 4
+
+task2:
+  template_min_frames: 20
+  ridge_lambda: 0.001
+  max_retries: 3
+  max_per_class: 0
+  fallback: hybrid
+  window_decay_frames: 10
