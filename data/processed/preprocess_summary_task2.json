@@ -1,0 +1,131 @@
+{
+  "templates": {
+    "min_frames": 20,
+    "ridge_lambda": 0.001,
+    "global_fallback": "ridge",
+    "global_pitch_range": [
+      31,
+      91
+    ],
+    "soundfonts": [
+      "ElectricPiano",
+      "YamahaGrandPiano",
+      "acoustic_piano_imis_1",
+      "grand-piano-YDP-20160804"
+    ],
+    "coverage": {
+      "ElectricPiano": {
+        "n_direct_pitches": 52,
+        "pitch_lo": 35,
+        "pitch_hi": 88,
+        "fallback": "ridge",
+        "n_usable_windows": 14180,
+        "n_direct": 52,
+        "n_ridge": 2,
+        "n_nearest": 0,
+        "n_global": 7
+      },
+      "YamahaGrandPiano": {
+        "n_direct_pitches": 47,
+        "pitch_lo": 38,
+        "pitch_hi": 88,
+        "fallback": "ridge",
+        "n_usable_windows": 7008,
+        "n_direct": 47,
+        "n_ridge": 4,
+        "n_nearest": 0,
+        "n_global": 10
+      },
+      "acoustic_piano_imis_1": {
+        "n_direct_pitches": 29,
+        "pitch_lo": 38,
+        "pitch_hi": 86,
+        "fallback": "ridge",
+        "n_usable_windows": 3091,
+        "n_direct": 29,
+        "n_ridge": 20,
+        "n_nearest": 0,
+        "n_global": 12
+      },
+      "grand-piano-YDP-20160804": {
+        "n_direct_pitches": 43,
+        "pitch_lo": 35,
+        "pitch_hi": 84,
+        "fallback": "ridge",
+        "n_usable_windows": 4081,
+        "n_direct": 43,
+        "n_ridge": 7,
+        "n_nearest": 0,
+        "n_global": 11
+      }
+    }
+  },
+  "class_names": {
+    "0": "clean",
+    "1": "wrong_pitch",
+    "2": "delete",
+    "3": "insert"
+  },
+  "splits": {
+    "train": {
+      "split": "train",
+      "n_source_windows": 28730,
+      "n_error_windows": 114920,
+      "n_skipped": 0,
+      "n_fallbacks": 26,
+      "class_counts": {
+        "clean": 28730,
+        "wrong_pitch": 28730,
+        "delete": 28730,
+        "insert": 28730
+      },
+      "method_counts": {
+        "n/a": 57460,
+        "bank": 57434,
+        "fallback_overlap": 26
+      },
+      "n_soundfonts": 4
+    },
+    "val": {
+      "split": "val",
+      "n_source_windows": 9720,
+      "n_error_windows": 38880,
+      "n_skipped": 0,
+      "n_fallbacks": 12,
+      "class_counts": {
+        "clean": 9720,
+        "wrong_pitch": 9720,
+        "delete": 9720,
+        "insert": 9720
+      },
+      "method_counts": {
+        "n/a": 19440,
+        "bank": 19428,
+        "fallback_overlap": 12
+      },
+      "n_soundfonts": 4
+    },
+    "test": {
+      "split": "test",
+      "n_source_windows": 8072,
+      "n_error_windows": 32288,
+      "n_skipped": 0,
+      "n_fallbacks": 4,
+      "class_counts": {
+        "clean": 8072,
+        "wrong_pitch": 8072,
+        "delete": 8072,
+        "insert": 8072
+      },
+      "method_counts": {
+        "n/a": 16144,
+        "bank": 16140,
+        "fallback_overlap": 4
+      },
+      "n_soundfonts": 4
+    }
+  },
+  "total_error_windows": 186088,
+  "total_skipped": 0,
+  "total_fallbacks": 42
+}

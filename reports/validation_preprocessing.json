@@ -1,0 +1,111 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "core": {
+    "splits": {
+      "train": {
+        "crops": 14365,
+        "windows": 28730,
+        "pairs": 57460
+      },
+      "val": {
+        "crops": 2430,
+        "windows": 9720,
+        "pairs": 19440
+      },
+      "test": {
+        "crops": 2018,
+        "windows": 8072,
+        "pairs": 16144
+      }
+    },
+    "image_stats": {
+      "mean": 0.8936307257819591,
+      "std": 0.26513359410817694
+    }
+  },
+  "task1": {
+    "splits": {
+      "train": {
+        "pages": 44,
+        "systems": 240,
+        "pairs": 143650,
+        "n_queries": 28730,
+        "n_assigned": 14365,
+        "n_polygon": 12433,
+        "n_nearest": 1932,
+        "n_unassigned": 0
+      },
+      "val": {
+        "pages": 8,
+        "systems": 38,
+        "pairs": 48600,
+        "n_queries": 9720,
+        "n_assigned": 2430,
+        "n_polygon": 2212,
+        "n_nearest": 218,
+        "n_unassigned": 0
+      },
+      "test": {
+        "pages": 8,
+        "systems": 36,
+        "pairs": 40360,
+        "n_queries": 8072,
+        "n_assigned": 2018,
+        "n_polygon": 1846,
+        "n_nearest": 172,
+        "n_unassigned": 0
+      }
+    },
+    "totals": {
+      "pages": 60,
+      "systems": 314,
+      "pairs": 232610
+    }
+  },
+  "task2": {
+    "splits": {
+      "train": {
+        "source_windows": 28730,
+        "error_windows": 114920,
+        "class_counts": {
+          "0": 28730,
+          "1": 28730,
+          "2": 28730,
+          "3": 28730
+        },
+        "n_fallbacks": 26,
+        "n_skipped": 0
+      },
+      "val": {
+        "source_windows": 9720,
+        "error_windows": 38880,
+        "class_counts": {
+          "0": 9720,
+          "1": 9720,
+          "2": 9720,
+          "3": 9720
+        },
+        "n_fallbacks": 12,
+        "n_skipped": 0
+      },
+      "test": {
+        "source_windows": 8072,
+        "error_windows": 32288,
+        "class_counts": {
+          "0": 8072,
+          "1": 8072,
+          "2": 8072,
+          "3": 8072
+        },
+        "n_fallbacks": 4,
+        "n_skipped": 0
+      }
+    },
+    "totals": {
+      "source_windows": 46522,
+      "error_windows": 186088
+    }
+  }
+}

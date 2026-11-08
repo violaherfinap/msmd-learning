@@ -1,0 +1,61 @@
+{
+  "min_frames": 20,
+  "ridge_lambda": 0.001,
+  "global_fallback": "ridge",
+  "global_pitch_range": [
+    31,
+    91
+  ],
+  "soundfonts": [
+    "ElectricPiano",
+    "YamahaGrandPiano",
+    "acoustic_piano_imis_1",
+    "grand-piano-YDP-20160804"
+  ],
+  "coverage": {
+    "ElectricPiano": {
+      "n_direct_pitches": 52,
+      "pitch_lo": 35,
+      "pitch_hi": 88,
+      "fallback": "ridge",
+      "n_usable_windows": 14180,
+      "n_direct": 52,
+      "n_ridge": 2,
+      "n_nearest": 0,
+      "n_global": 7
+    },
+    "YamahaGrandPiano": {
+      "n_direct_pitches": 47,
+      "pitch_lo": 38,
+      "pitch_hi": 88,
+      "fallback": "ridge",
+      "n_usable_windows": 7008,
+      "n_direct": 47,
+      "n_ridge": 4,
+      "n_nearest": 0,
+      "n_global": 10
+    },
+    "acoustic_piano_imis_1": {
+      "n_direct_pitches": 29,
+      "pitch_lo": 38,
+      "pitch_hi": 86,
+      "fallback": "ridge",
+      "n_usable_windows": 3091,
+      "n_direct": 29,
+      "n_ridge": 20,
+      "n_nearest": 0,
+      "n_global": 12
+    },
+    "grand-piano-YDP-20160804": {
+      "n_direct_pitches": 43,
+      "pitch_lo": 35,
+      "pitch_hi": 84,
+      "fallback": "ridge",
+      "n_usable_windows": 4081,
+      "n_direct": 43,
+      "n_ridge": 7,
+      "n_nearest": 0,
+      "n_global": 11
+    }
+  }
+}

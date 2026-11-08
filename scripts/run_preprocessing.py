@@ -16,6 +16,9 @@ if str(ROOT) not in sys.path:
 from src.msmd_preprocess.config import load_config, resolve_paths
 from src.msmd_preprocess.core import run_core
 from src.msmd_preprocess.dataset import exclude_no_mung, load_metadata
+from src.msmd_preprocess.task1 import run_task1
+from src.msmd_preprocess.task2 import run_task2
+from src.msmd_preprocess.validate import validate_preprocessing
 
 
 def configure_logging(config: dict) -> Path:
@@ -45,8 +48,15 @@ def main() -> None:
     )
     parser.add_argument("--config", default=None, help="Path to YAML config")
     parser.add_argument("--dry-run", action="store_true", help="Print config and exit")
-    parser.add_argument("--force", action="store_true", help="Ignore cached stage results")
+    parser.add_argument("--force", action="store_true", help="Reserved for cache invalidation")
+    parser.add_argument(
+        "--verify-only",
+        action="store_true",
+        help="Validate existing artifacts without loading raw data",
+    )
     args = parser.parse_args()
+    if args.verify_only:
+        args.stage = "verify"
 
     config = load_config(args.config)
     paths = resolve_paths(config)
@@ -59,7 +69,15 @@ def main() -> None:
     logger.info("Config: %s", config["_config_path"])
     logger.info("Log: %s", log_path)
 
-    pieces, perfs, splits = load_metadata(config)
+    if args.stage == "verify":
+        report = validate_preprocessing(config)
+        print(json.dumps(report, indent=2, default=str))
+        if not report["ok"]:
+            raise SystemExit(1)
+        logger.info("Validation passed")
+        return
+
+    pieces, perfs, _ = load_metadata(config)
     pieces, perfs, excluded = exclude_no_mung(
         pieces, perfs, paths["raw_dir"]
     )
@@ -73,8 +91,12 @@ def main() -> None:
     if args.stage in {"core", "all"}:
         summary = run_core(config, pieces, perfs, excluded)
         logger.info("Core summary: %s", json.dumps(summary, indent=2))
-    else:
-        raise SystemExit(f"Stage not implemented yet: {args.stage}")
+    if args.stage in {"task1", "all"}:
+        summary = run_task1(config)
+        logger.info("Task 1 summary: %s", json.dumps(summary, indent=2))
+    if args.stage in {"task2", "all"}:
+        summary = run_task2(config)
+        logger.info("Task 2 summary: %s", json.dumps(summary, indent=2))
 
 
 if __name__ == "__main__":

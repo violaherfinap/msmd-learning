@@ -6,6 +6,9 @@ logs/
 *.tmp
 data/processed/*.npy
 data/processed/*.npz
+data/processed/*.tmp.npz
+data/processed/*.zip
+dist/
 data/processed/*.pt
 data/processed/*.pth
 data/processed/*.tar

@@ -1,0 +1,58 @@
+{
+  "splits": {
+    "train": {
+      "split": "train",
+      "n_pages": 44,
+      "n_systems": 240,
+      "n_noteheads": 14365,
+      "n_assigned": 14365,
+      "n_polygon": 12433,
+      "n_nearest": 1932,
+      "n_unassigned": 0,
+      "n_pairs": 143650,
+      "n_queries": 28730,
+      "n_skipped_queries": 0,
+      "page_mean": 0.9429144004236995,
+      "page_std": 0.12694041955979984,
+      "system_mean": 0.9099207979090072,
+      "system_std": 0.20532675772833403
+    },
+    "val": {
+      "split": "val",
+      "n_pages": 8,
+      "n_systems": 38,
+      "n_noteheads": 2430,
+      "n_assigned": 2430,
+      "n_polygon": 2212,
+      "n_nearest": 218,
+      "n_unassigned": 0,
+      "n_pairs": 48600,
+      "n_queries": 9720,
+      "n_skipped_queries": 0,
+      "page_mean": 0.0,
+      "page_std": 0.0,
+      "system_mean": 0.0,
+      "system_std": 0.0
+    },
+    "test": {
+      "split": "test",
+      "n_pages": 8,
+      "n_systems": 36,
+      "n_noteheads": 2018,
+      "n_assigned": 2018,
+      "n_polygon": 1846,
+      "n_nearest": 172,
+      "n_unassigned": 0,
+      "n_pairs": 40360,
+      "n_queries": 8072,
+      "n_skipped_queries": 0,
+      "page_mean": 0.0,
+      "page_std": 0.0,
+      "system_mean": 0.0,
+      "system_std": 0.0
+    }
+  },
+  "total_pages": 60,
+  "total_systems": 314,
+  "total_pairs": 232610
+}
