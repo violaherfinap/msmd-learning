@@ -14,11 +14,5 @@ def long_path(path: str | Path) -> str:
     return value
 
 
-def ensure_dir(path: str | Path) -> Path:
-    directory = Path(path)
-    directory.mkdir(parents=True, exist_ok=True)
-    return directory
-
-
 def relative_posix(path: str | Path, root: str | Path) -> str:
     return Path(path).resolve().relative_to(Path(root).resolve()).as_posix()

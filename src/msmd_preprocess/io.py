@@ -25,21 +25,12 @@ def write_json(path: str | Path, obj: Any) -> None:
     os.replace(tmp, target)
 
 
-def read_json(path: str | Path) -> Any:
-    with Path(path).open("r", encoding="utf-8") as handle:
-        return json.load(handle)
-
-
 def write_parquet(frame: pd.DataFrame, path: str | Path) -> None:
     target = Path(path)
     target.parent.mkdir(parents=True, exist_ok=True)
     tmp = target.with_suffix(target.suffix + ".tmp")
     frame.to_parquet(tmp, index=False, engine="pyarrow", compression="zstd")
     os.replace(tmp, target)
-
-
-def read_parquet(path: str | Path) -> pd.DataFrame:
-    return pd.read_parquet(path, engine="pyarrow")
 
 
 class NpyAppendWriter:

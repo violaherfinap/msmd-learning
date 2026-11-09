@@ -13,6 +13,26 @@ loss, dan evaluasi model **tidak termasuk** dalam scope repo ini.
 
 ---
 
+## Dokumentasi utama
+
+- [`reports/PREPROCESSING_SUMMARY.md`](reports/PREPROCESSING_SUMMARY.md) — ringkasan lengkap
+  preprocessing core, Task 1, Task 2, validasi, artefak, dan batasan.
+- [`reports/HANDOFF_TEMAN.md`](reports/HANDOFF_TEMAN.md) — panduan memakai artefak,
+  extract Release, verifikasi, dan loader untuk training.
+- [`reports/preprocessing_report_current.html`](reports/preprocessing_report_current.html) —
+  laporan HTML current, self-contained, untuk reviewer.
+- [`reports/qa_v2/qa_summary.json`](reports/qa_v2/qa_summary.json) — hasil QA visual.
+- [`scripts/qa_visual.py`](scripts/qa_visual.py) — generator gambar QA visual.
+- [`scripts/trace_sample.py`](scripts/trace_sample.py) — trace sampel raw ke artefak.
+- [`scripts/extract_release.ps1`](scripts/extract_release.ps1) — extract zip Release
+  ke root repo dengan aman.
+
+Laporan HTML current ada di `reports/preprocessing_report_current.html`. File
+legacy sudah dihapus dan diarsipkan di branch `01-preprocessing`; lihat bagian
+[Arsip legacy](#arsip-legacy) di bawah.
+
+---
+
 ## Quick start: memakai artefak tanpa dataset mentah
 
 Artefak besar didistribusikan lewat **GitHub Release**, bukan lewat Git.
@@ -24,6 +44,14 @@ Artefak besar didistribusikan lewat **GitHub Release**, bukan lewat Git.
    - `preproc-v1-meta.zip`
 2. Ekstrak semuanya ke **root repo**, pertahankan struktur folder. Zip sudah berisi
    path seperti `data/processed/...`, `configs/...`, dan `README.md`.
+
+   ```powershell
+   .\scripts\extract_release.ps1 -DryRun
+   .\scripts\extract_release.ps1
+   ```
+
+   Script menolak folder tujuan yang salah dan menjalankan validasi setelah extract.
+   Jangan extract ke dalam `data/processed` hingga menjadi `data/processed/data/processed`.
 3. Install dependency:
 
    ```powershell
@@ -222,6 +250,9 @@ pitch, window_row`.
 
 Label Task 2: `0=clean`, `1=wrong_pitch`, `2=delete`, `3=insert`.
 
+`data/processed/norm_stats.json` tetap disimpan sebagai input normalisasi audio
+untuk regenerate core, bukan artefak loader training.
+
 ---
 
 ## Validasi dan release
@@ -275,23 +306,43 @@ data/
   subset_performances.csv
   splits.csv
   processed/                 # artefak kecil di Git, tensor besar di Release
-notebooks/
-  01_eda_preprocessing.ipynb
-  02_note_level_preprocessing.ipynb
 scripts/
   run_preprocessing.py
   build_manifest.py
   build_release.py
   build_dataset_inventory.py
+  qa_visual.py
+  trace_sample.py
+  extract_release.ps1
 src/msmd_preprocess/
   config.py  dataset.py  io.py  mung.py  paths.py
   core.py    task1.py    templates.py  task2.py  validate.py  bundles.py
 reports/
+  preprocessing_report_current.html
   validation_preprocessing.json
+  PREPROCESSING_SUMMARY.md
+  HANDOFF_TEMAN.md
+  qa_v2/
 ```
 
-Notebook `01`/`02` adalah referensi historis. Pipeline baru tidak menjalankan notebook;
-gunakan `scripts/run_preprocessing.py`.
+Pipeline baru berbasis script; gunakan `scripts/run_preprocessing.py`.
+
+---
+
+## Arsip legacy
+
+File HTML, notebook, dan laporan lama sudah dihapus dari branch kerja karena
+memakai pipeline core-only lama. File tersebut tetap tersedia di branch arsip
+`01-preprocessing` dan history Git.
+
+- `reports/preprocessing_report.html` dan `reports/02_note_level_preprocessing.html`
+- `reports/preprocessing_report.md`, `reports/preprocessing_datacard.md`, dan
+  `reports/methodology_dataset.md`
+- `notebooks/01_eda_preprocessing.ipynb` dan `notebooks/02_note_level_preprocessing.ipynb`
+- `reports/figures/` dan CSV/JSON legacy di `data/processed/`
+
+Gunakan `reports/preprocessing_report_current.html`, `reports/PREPROCESSING_SUMMARY.md`,
+`reports/HANDOFF_TEMAN.md`, dan `reports/qa_v2/` sebagai acuan saat ini.
 
 ---
 
@@ -314,4 +365,6 @@ Alur: `feature/preprocessing-dhea` -> `dev` -> `main`.
 - Delete note bisa halus secara energi jika window berisi banyak note; model perlu
   memakai bukti spektral lokal, bukan hanya energi total.
 - Template pitch di luar range direct memakai fallback ridge/nearest/global.
+- `norm_stats_note.json` masih menyimpan field legacy `audio.segment_frames=100`;
+  artifact window sekarang 42 frame. Field itu tidak dipakai loader.
 - Tidak ada training/model di repo ini.

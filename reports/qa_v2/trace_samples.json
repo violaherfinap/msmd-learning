@@ -1,0 +1,222 @@
+{
+  "split": "val",
+  "seed": 42,
+  "generated_at": "2026-11-09T01:37:38.329235+00:00",
+  "ok": true,
+  "issues": [],
+  "samples": [
+    {
+      "notehead_id": "HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto__p01__nh201",
+      "piece": "HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto",
+      "page_id": "HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto__p01",
+      "pitch": 66,
+      "raw_png": "msmd_aug_v1-1_no-audio\\HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto\\scores\\HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto_ly\\img\\01.png",
+      "raw_crop_max_abs_diff": 0,
+      "raw_crop_mean_abs_diff": 0.0,
+      "saved_crop_shape": [
+        200,
+        160
+      ],
+      "window_id": "HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto__p01__nh201__HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto_tempo-1000_ElectricPiano__w",
+      "window_row": 1752,
+      "window_shape": [
+        42,
+        92
+      ],
+      "window_finite": true,
+      "window_nonzero": true,
+      "onset_frame": 748,
+      "start_frame": 727,
+      "end_frame": 769,
+      "onset_inside_window": true,
+      "spec_T": 3036,
+      "midi_T": 3035,
+      "aligned_T": 3035,
+      "aligned_T_ok": true,
+      "assignment_method": "polygon",
+      "system_id": "HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto__p01__s03",
+      "system_bbox": [
+        36.0,
+        515.0,
+        796.0,
+        590.0
+      ],
+      "task1_query_rows": 5,
+      "task1_positive_rows": 1,
+      "task1_positive_system_id": "HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto__p01__s03",
+      "task2_rows": 4,
+      "task2_classes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "task2_error_rows": [
+        7008,
+        7009,
+        7010,
+        7011
+      ],
+      "task2_error_shapes": [
+        [
+          42,
+          92
+        ],
+        [
+          42,
+          92
+        ],
+        [
+          42,
+          92
+        ],
+        [
+          42,
+          92
+        ]
+      ]
+    },
+    {
+      "notehead_id": "ScarlattiD__K11__sonatensatz__p02__nh547",
+      "piece": "ScarlattiD__K11__sonatensatz",
+      "page_id": "ScarlattiD__K11__sonatensatz__p02",
+      "pitch": 43,
+      "raw_png": "msmd_aug_v1-1_no-audio\\ScarlattiD__K11__sonatensatz\\scores\\ScarlattiD__K11__sonatensatz_ly\\img\\02.png",
+      "raw_crop_max_abs_diff": 0,
+      "raw_crop_mean_abs_diff": 0.0,
+      "saved_crop_shape": [
+        200,
+        160
+      ],
+      "window_id": "ScarlattiD__K11__sonatensatz__p02__nh547__ScarlattiD__K11__sonatensatz_tempo-1000_acoustic_piano_imis_1__w",
+      "window_row": 7988,
+      "window_shape": [
+        42,
+        92
+      ],
+      "window_finite": true,
+      "window_nonzero": true,
+      "onset_frame": 1070,
+      "start_frame": 1049,
+      "end_frame": 1091,
+      "onset_inside_window": true,
+      "spec_T": 1151,
+      "midi_T": 1150,
+      "aligned_T": 1150,
+      "aligned_T_ok": true,
+      "assignment_method": "polygon",
+      "system_id": "ScarlattiD__K11__sonatensatz__p02__s01",
+      "system_bbox": [
+        36.0,
+        180.0,
+        796.0,
+        256.0
+      ],
+      "task1_query_rows": 5,
+      "task1_positive_rows": 1,
+      "task1_positive_system_id": "ScarlattiD__K11__sonatensatz__p02__s01",
+      "task2_rows": 4,
+      "task2_classes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "task2_error_rows": [
+        31952,
+        31953,
+        31954,
+        31955
+      ],
+      "task2_error_shapes": [
+        [
+          42,
+          92
+        ],
+        [
+          42,
+          92
+        ],
+        [
+          42,
+          92
+        ],
+        [
+          42,
+          92
+        ]
+      ]
+    },
+    {
+      "notehead_id": "HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto__p01__nh375",
+      "piece": "HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto",
+      "page_id": "HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto__p01",
+      "pitch": 54,
+      "raw_png": "msmd_aug_v1-1_no-audio\\HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto\\scores\\HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto_ly\\img\\01.png",
+      "raw_crop_max_abs_diff": 0,
+      "raw_crop_mean_abs_diff": 0.0,
+      "saved_crop_shape": [
+        200,
+        160
+      ],
+      "window_id": "HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto__p01__nh375__HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto_tempo-1000_ElectricPiano__w",
+      "window_row": 2444,
+      "window_shape": [
+        42,
+        92
+      ],
+      "window_finite": true,
+      "window_nonzero": true,
+      "onset_frame": 995,
+      "start_frame": 974,
+      "end_frame": 1016,
+      "onset_inside_window": true,
+      "spec_T": 3036,
+      "midi_T": 3035,
+      "aligned_T": 3035,
+      "aligned_T_ok": true,
+      "assignment_method": "polygon",
+      "system_id": "HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto__p01__s05",
+      "system_bbox": [
+        36.0,
+        776.0,
+        796.0,
+        861.0
+      ],
+      "task1_query_rows": 5,
+      "task1_positive_rows": 1,
+      "task1_positive_system_id": "HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto__p01__s05",
+      "task2_rows": 4,
+      "task2_classes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "task2_error_rows": [
+        9776,
+        9777,
+        9778,
+        9779
+      ],
+      "task2_error_shapes": [
+        [
+          42,
+          92
+        ],
+        [
+          42,
+          92
+        ],
+        [
+          42,
+          92
+        ],
+        [
+          42,
+          92
+        ]
+      ]
+    }
+  ]
+}

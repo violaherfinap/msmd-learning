@@ -1,0 +1,57 @@
+{
+  "split": "val",
+  "seed": 42,
+  "generated_at": "2026-11-08T10:55:02.704779+00:00",
+  "counts": {
+    "noteheads": 2430,
+    "windows": 9720,
+    "pairs_note": 19440,
+    "pages": 8,
+    "systems": 38,
+    "assignments": 2430,
+    "pairs_system": 48600,
+    "task2_windows": 38880
+  },
+  "checks": {
+    "crop_matches_raw": [
+      {
+        "notehead_id": "HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto__p01__nh201",
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0
+      },
+      {
+        "notehead_id": "ScarlattiD__K11__sonatensatz__p02__nh547",
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0
+      },
+      {
+        "notehead_id": "HaydnFJ__HOB-XVI-27__hob-xvi-27-iii-presto__p01__nh375",
+        "max_abs_diff": 0,
+        "mean_abs_diff": 0.0
+      }
+    ],
+    "audio_selected_finite": true,
+    "task1_query_size_all_5": true,
+    "task1_one_positive_per_query": true,
+    "task2_four_classes_per_source": true,
+    "task2_class_counts": {
+      "clean": 9720,
+      "delete": 9720,
+      "insert": 9720,
+      "wrong_pitch": 9720
+    }
+  },
+  "figures": [
+    "reports/qa_v2/01_notehead_page_overlay.png",
+    "reports/qa_v2/02_notehead_crops.png",
+    "reports/qa_v2/03_audio_windows.png",
+    "reports/qa_v2/04_task1_system_overlay.png",
+    "reports/qa_v2/05_task1_system_crops.png",
+    "reports/qa_v2/06_task2_class_grid.png",
+    "reports/qa_v2/07_task2_diff_examples.png"
+  ],
+  "issues": [],
+  "warnings": [
+    "norm_stats_note.json audio.segment_frames=100, tetapi artifact window=42 frame; field ini legacy dan tidak dipakai loader"
+  ]
+}

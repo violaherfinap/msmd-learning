@@ -115,7 +115,3 @@ def choose_perfs(perfs_list: list[dict[str, Any]], split: str, k: int) -> list[d
 
 def features_dir(raw_dir: str | Path, piece: str, perf_name: str) -> Path:
     return Path(raw_dir) / piece / "performances" / perf_name / "features"
-
-
-def performance_table(perfs: pd.DataFrame) -> dict[str, dict[str, Any]]:
-    return {str(row["perf_name"]): row for row in perfs.to_dict("records")}
