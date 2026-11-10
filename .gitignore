@@ -20,7 +20,12 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+.venv-baseline/
+.venv-*/
 .env
+
+# Local baseline artifacts
+checkpoints/
 
 # Notebook / Jupyter
 .ipynb_checkpoints/

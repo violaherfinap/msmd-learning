@@ -1,0 +1,6 @@
+# Dependencies for the baseline notebooks (03 and 04).
+# Install after the preprocessing requirements:
+#   python -m pip install -r requirements.txt
+#   python -m pip install -r requirements-baseline.txt
+torch>=2.0
+pyarrow>=14
