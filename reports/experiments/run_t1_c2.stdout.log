@@ -1,0 +1,23 @@
+run_id : t1_c2_tuned
+config : configs\experiments\t1_c2_tuned.yaml
+device : cpu
+torch  : 2.15.0+cpu
+train batches 225 | val pairs 2,430
+epoch 01 | loss 0.2512 | val MRR A2S 0.0054 | val MRR S2A 0.0048 | lr 1.00e-03 | 295.4s
+  -> checkpoint saved (best val MRR 0.0051)
+epoch 02 | loss 0.1360 | val MRR A2S 0.0105 | val MRR S2A 0.0051 | lr 1.00e-03 | 296.9s
+  -> checkpoint saved (best val MRR 0.0078)
+epoch 03 | loss 0.1146 | val MRR A2S 0.0071 | val MRR S2A 0.0068 | lr 1.00e-03 | 298.8s
+epoch 04 | loss 0.0995 | val MRR A2S 0.0056 | val MRR S2A 0.0066 | lr 1.00e-03 | 288.3s
+epoch 05 | loss 0.0896 | val MRR A2S 0.0107 | val MRR S2A 0.0085 | lr 1.00e-03 | 279.2s
+  -> checkpoint saved (best val MRR 0.0096)
+epoch 06 | loss 0.0834 | val MRR A2S 0.0059 | val MRR S2A 0.0068 | lr 1.00e-03 | 281.2s
+epoch 07 | loss 0.0785 | val MRR A2S 0.0060 | val MRR S2A 0.0048 | lr 1.00e-03 | 280.7s
+epoch 08 | loss 0.0751 | val MRR A2S 0.0088 | val MRR S2A 0.0093 | lr 5.00e-04 | 247.6s
+Early stop after 3 epochs without improvement.
+loaded epoch 5 | val {'mrr_a2s': 0.01074075948140173, 'mrr_s2a': 0.008540516481976793, 'mrr_mean': 0.009640637981689262, 'n': 2430}
+test system page R@1 0.2587
+test system page R@5 0.9454
+test 5-candidate R@1 0.2992
+test snippet MRR 0.0094
+saved : E:\SMT 5\ML\Projek\msmd-learning\reports\experiments\t1_c2_tuned

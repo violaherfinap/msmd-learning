@@ -747,8 +747,6 @@ def main() -> None:
     config = normalize_config(load_config(args.config), args)
     if config["task"] != "task1":
         raise ValueError(f"Unsupported task: {config['task']}")
-    if config["experiment"] != "dual_encoder":
-        raise ValueError(f"Unsupported experiment: {config['experiment']}")
 
     run_id, run_dir = create_run_dir(config, args)
     _LOG_HANDLE = open(run_dir / "run.log", "w", encoding="utf-8")
@@ -766,6 +764,18 @@ def main() -> None:
     log(f"config : {args.config}")
     log(f"device : {device}")
     log(f"torch  : {torch.__version__}")
+
+    if config["experiment"] == "ranking_head":
+        from scripts.ranking_head import run_ranking_head
+
+        try:
+            run_ranking_head(config, run_id, run_dir, device, data_dir, log)
+        finally:
+            _LOG_HANDLE.close()
+            _LOG_HANDLE = None
+        return
+    if config["experiment"] != "dual_encoder":
+        raise ValueError(f"Unsupported experiment: {config['experiment']}")
 
     train_loader, val_loader, frames = build_task1_loaders(config, data_dir)
     log(

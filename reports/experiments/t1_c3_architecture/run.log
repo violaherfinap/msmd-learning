@@ -1,0 +1,25 @@
+run_id : t1_c3_architecture
+config : configs\experiments\t1_c3_architecture.yaml
+device : cpu
+torch  : 2.15.0+cpu
+train batches 225 | val pairs 2,430
+epoch 01 | loss 0.2291 | val MRR A2S 0.0053 | val MRR S2A 0.0030 | lr 1.00e-03 | 460.7s
+  -> checkpoint saved (best val MRR 0.0041)
+epoch 02 | loss 0.1697 | val MRR A2S 0.0044 | val MRR S2A 0.0036 | lr 1.00e-03 | 460.2s
+epoch 03 | loss 0.1203 | val MRR A2S 0.0059 | val MRR S2A 0.0044 | lr 1.00e-03 | 464.5s
+  -> checkpoint saved (best val MRR 0.0052)
+epoch 04 | loss 0.0961 | val MRR A2S 0.0096 | val MRR S2A 0.0048 | lr 1.00e-03 | 423.9s
+  -> checkpoint saved (best val MRR 0.0072)
+epoch 05 | loss 0.0795 | val MRR A2S 0.0066 | val MRR S2A 0.0045 | lr 1.00e-03 | 430.8s
+epoch 06 | loss 0.0736 | val MRR A2S 0.0187 | val MRR S2A 0.0090 | lr 1.00e-03 | 446.6s
+  -> checkpoint saved (best val MRR 0.0139)
+epoch 07 | loss 0.0662 | val MRR A2S 0.0050 | val MRR S2A 0.0026 | lr 1.00e-03 | 459.8s
+epoch 08 | loss 0.0647 | val MRR A2S 0.0119 | val MRR S2A 0.0081 | lr 1.00e-03 | 453.6s
+epoch 09 | loss 0.0614 | val MRR A2S 0.0138 | val MRR S2A 0.0052 | lr 5.00e-04 | 468.9s
+Early stop after 3 epochs without improvement.
+loaded epoch 6 | val {'mrr_a2s': 0.018743662423754335, 'mrr_s2a': 0.009020380728467446, 'mrr_mean': 0.01388202157611089, 'n': 2430}
+test system page R@1 0.2520
+test system page R@5 0.9590
+test 5-candidate R@1 0.2584
+test snippet MRR 0.0080
+saved : E:\SMT 5\ML\Projek\msmd-learning\reports\experiments\t1_c3_architecture

@@ -3,3 +3,19 @@ config : configs\experiments\t1_c1_baseline.yaml
 device : cpu
 torch  : 2.15.0+cpu
 train batches 225 | val pairs 2,430
+epoch 01 | loss 0.2479 | val MRR A2S 0.0050 | val MRR S2A 0.0061 | lr 2.00e-03 | 311.0s
+  -> checkpoint saved (best val MRR 0.0055)
+epoch 02 | loss 0.1354 | val MRR A2S 0.0068 | val MRR S2A 0.0042 | lr 2.00e-03 | 324.9s
+epoch 03 | loss 0.1086 | val MRR A2S 0.0072 | val MRR S2A 0.0073 | lr 2.00e-03 | 326.9s
+  -> checkpoint saved (best val MRR 0.0072)
+epoch 04 | loss 0.0904 | val MRR A2S 0.0102 | val MRR S2A 0.0054 | lr 2.00e-03 | 325.9s
+  -> checkpoint saved (best val MRR 0.0078)
+epoch 05 | loss 0.0737 | val MRR A2S 0.0075 | val MRR S2A 0.0079 | lr 2.00e-03 | 320.8s
+epoch 06 | loss 0.0629 | val MRR A2S 0.0091 | val MRR S2A 0.0066 | lr 2.00e-03 | 291.3s
+  -> checkpoint saved (best val MRR 0.0078)
+loaded epoch 6 | val {'mrr_a2s': 0.009052266750574276, 'mrr_s2a': 0.006557271863345115, 'mrr_mean': 0.007804769306959695, 'n': 2430}
+test system page R@1 0.2849
+test system page R@5 0.9610
+test 5-candidate R@1 0.3085
+test snippet MRR 0.0122
+saved : E:\SMT 5\ML\Projek\msmd-learning\reports\experiments\t1_c1_baseline

@@ -1,0 +1,141 @@
+{
+  "run_id": "t1_c4_smoke",
+  "task": "task1",
+  "experiment": "ranking_head",
+  "config": {
+    "run_id": "t1_c4_smoke",
+    "task": "task1",
+    "experiment": "ranking_head",
+    "source_checkpoint": "checkpoints/experiments/t1_c3_architecture.pt",
+    "seed": 42,
+    "device": "auto",
+    "threads": null,
+    "freeze_encoders": true,
+    "features": [
+      "max_sim",
+      "mean_sim",
+      "top5_mean",
+      "min_sim",
+      "std_sim",
+      "pair_best_x",
+      "pair_best_y",
+      "pair_best_xy",
+      "pair_best_absdiff"
+    ],
+    "loss": "listwise_softmax",
+    "num_candidates": 5,
+    "hidden_dim": 128,
+    "dropout": 0.2,
+    "epochs": 2,
+    "lr": 0.001,
+    "weight_decay": 0.001,
+    "batch_queries": 64,
+    "hard_negative_mining": {
+      "enabled": true,
+      "every_epochs": 2
+    },
+    "fast_dev": true,
+    "batch_size": 128,
+    "eval_batch_size": 256,
+    "early_stop_patience": 2,
+    "grad_clip": 5.0,
+    "margin": 0.7,
+    "embed_dim": 32,
+    "channels": [
+      16,
+      32,
+      64
+    ],
+    "use_cca": false,
+    "cca": {
+      "r1": 0.001,
+      "r2": 0.001,
+      "rT": 0.001,
+      "alpha": 1.0
+    },
+    "augment": {
+      "image_scale": [
+        0.95,
+        1.05
+      ],
+      "image_translate": 5.0,
+      "audio_time_shift": 1,
+      "audio_tempo_jitter": 0.1
+    },
+    "num_workers": 0,
+    "data_dir": "E:\\SMT 5\\ML\\Projek\\msmd-learning\\data\\processed",
+    "train_limit": 2000,
+    "val_limit": 500,
+    "checkpoint": "E:\\SMT 5\\ML\\Projek\\msmd-learning\\checkpoints\\experiments\\t1_c4_smoke.pt"
+  },
+  "seed": 42,
+  "device": "cpu",
+  "source_checkpoint": "E:\\SMT 5\\ML\\Projek\\msmd-learning\\checkpoints\\experiments\\t1_c3_architecture.pt",
+  "checkpoint": "E:\\SMT 5\\ML\\Projek\\msmd-learning\\checkpoints\\experiments\\t1_c4_smoke.pt",
+  "best_epoch": 2,
+  "best_val_metrics": {
+    "R@1": 0.388,
+    "R@5": 1.0,
+    "R@10": 1.0,
+    "R@25": 1.0,
+    "MRR": 0.6204,
+    "median_rank": 2.0,
+    "mean_rank": 2.152,
+    "n_queries": 500,
+    "accuracy": 0.388
+  },
+  "best_val_mrr": 0.6204,
+  "training_seconds": 223.3076412677765,
+  "test": {
+    "five_candidate": {
+      "R@1": 0.2871655104063429,
+      "R@5": 1.0,
+      "R@10": 1.0,
+      "R@25": 1.0,
+      "MRR": 0.5459014701024116,
+      "median_rank": 2.0,
+      "mean_rank": 2.453790882061447,
+      "n_queries": 8072
+    },
+    "page_conditioned": {
+      "R@1": 0.28258176412289393,
+      "R@5": 0.9484638255698712,
+      "R@10": 1.0,
+      "R@25": 1.0,
+      "MRR": 0.5245664023785926,
+      "median_rank": 2.0,
+      "mean_rank": 2.7293111992071357,
+      "n_queries": 8072
+    },
+    "full_collection": {
+      "R@1": 0.08498513379583747,
+      "R@5": 0.3237115956392468,
+      "R@10": 0.5531466798810704,
+      "R@25": 0.908820614469772,
+      "MRR": 0.219499152865059,
+      "median_rank": 9.0,
+      "mean_rank": 11.325074331020813,
+      "n_queries": 8072
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.4907405948638917,
+      "val_mrr": 0.5159000000000001,
+      "val_accuracy": 0.29,
+      "val_mrr_at_5": 1.0,
+      "lr": 0.001,
+      "seconds": 0.1669921875
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.4740362930297852,
+      "val_mrr": 0.6204,
+      "val_accuracy": 0.388,
+      "val_mrr_at_5": 1.0,
+      "lr": 0.001,
+      "seconds": 0.9784607887268066
+    }
+  ]
+}

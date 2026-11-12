@@ -1,0 +1,33 @@
+run_id : t1_c4_ranking_head
+config : configs\experiments\t1_c4_ranking_head.yaml
+device : cpu
+torch  : 2.15.0+cpu
+source checkpoint : E:\SMT 5\ML\Projek\msmd-learning\checkpoints\experiments\t1_c3_architecture.pt
+data dir          : E:\SMT 5\ML\Projek\msmd-learning\data\processed
+embed dim         : 32
+feature dim       : 133
+embedding train...
+embedding val...
+embedding test...
+building candidate features...
+train queries 28,730 | val queries 9,720
+epoch 01 | loss 1.2165 | val MRR 0.5268 | val top-1 0.2761 | lr 1.00e-03 | 2.1s
+  -> checkpoint saved (best val MRR 0.5268)
+epoch 02: rebuilding hard negatives
+epoch 02 | loss 1.4464 | val MRR 0.5300 | val top-1 0.2813 | lr 1.00e-03 | 17.2s
+  -> checkpoint saved (best val MRR 0.5300)
+epoch 03 | loss 1.3901 | val MRR 0.5324 | val top-1 0.2851 | lr 1.00e-03 | 2.1s
+  -> checkpoint saved (best val MRR 0.5324)
+epoch 04: rebuilding hard negatives
+epoch 04 | loss 1.3611 | val MRR 0.5410 | val top-1 0.2984 | lr 1.00e-03 | 7.7s
+  -> checkpoint saved (best val MRR 0.5410)
+epoch 05 | loss 1.3235 | val MRR 0.5390 | val top-1 0.2917 | lr 1.00e-03 | 2.2s
+epoch 06: rebuilding hard negatives
+epoch 06 | loss 1.3118 | val MRR 0.5329 | val top-1 0.2850 | lr 1.00e-03 | 7.7s
+epoch 07 | loss 1.2755 | val MRR 0.5380 | val top-1 0.2921 | lr 5.00e-04 | 2.1s
+Early stop after 3 epochs without improvement.
+loaded epoch 4 | val {'R@1': 0.29835390946502055, 'R@5': 1.0, 'R@10': 1.0, 'R@25': 1.0, 'MRR': 0.5410459533607681, 'median_rank': 2.0, 'mean_rank': 2.580761316872428, 'n_queries': 9720, 'accuracy': 0.29835390946502055}
+test 5-candidate R@1 0.3527
+test page R@1 0.3303 | R@5 0.9480
+test full R@1 0.1100
+saved : E:\SMT 5\ML\Projek\msmd-learning\reports\experiments\t1_c4_ranking_head

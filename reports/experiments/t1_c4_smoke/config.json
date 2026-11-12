@@ -1,0 +1,66 @@
+{
+  "run_id": "t1_c4_smoke",
+  "task": "task1",
+  "experiment": "ranking_head",
+  "source_checkpoint": "checkpoints/experiments/t1_c3_architecture.pt",
+  "seed": 42,
+  "device": "auto",
+  "threads": null,
+  "freeze_encoders": true,
+  "features": [
+    "max_sim",
+    "mean_sim",
+    "top5_mean",
+    "min_sim",
+    "std_sim",
+    "pair_best_x",
+    "pair_best_y",
+    "pair_best_xy",
+    "pair_best_absdiff"
+  ],
+  "loss": "listwise_softmax",
+  "num_candidates": 5,
+  "hidden_dim": 128,
+  "dropout": 0.2,
+  "epochs": 2,
+  "lr": 0.001,
+  "weight_decay": 0.001,
+  "batch_queries": 64,
+  "hard_negative_mining": {
+    "enabled": true,
+    "every_epochs": 2
+  },
+  "fast_dev": true,
+  "batch_size": 128,
+  "eval_batch_size": 256,
+  "early_stop_patience": 2,
+  "grad_clip": 5.0,
+  "margin": 0.7,
+  "embed_dim": 32,
+  "channels": [
+    16,
+    32,
+    64
+  ],
+  "use_cca": false,
+  "cca": {
+    "r1": 0.001,
+    "r2": 0.001,
+    "rT": 0.001,
+    "alpha": 1.0
+  },
+  "augment": {
+    "image_scale": [
+      0.95,
+      1.05
+    ],
+    "image_translate": 5.0,
+    "audio_time_shift": 1,
+    "audio_tempo_jitter": 0.1
+  },
+  "num_workers": 0,
+  "data_dir": "E:\\SMT 5\\ML\\Projek\\msmd-learning\\data\\processed",
+  "train_limit": 2000,
+  "val_limit": 500,
+  "checkpoint": "E:\\SMT 5\\ML\\Projek\\msmd-learning\\checkpoints\\experiments\\t1_c4_smoke.pt"
+}
