@@ -1,0 +1,230 @@
+{
+  "run_id": "t1_c1_smoke",
+  "task": "task1",
+  "experiment": "dual_encoder",
+  "config": {
+    "run_id": "t1_c1_smoke",
+    "task": "task1",
+    "experiment": "dual_encoder",
+    "profile": "dorfer-lite",
+    "seed": 42,
+    "device": "auto",
+    "threads": null,
+    "batch_size": 128,
+    "eval_batch_size": 256,
+    "epochs": 2,
+    "early_stop_patience": 2,
+    "lr": 0.002,
+    "weight_decay": 0.0001,
+    "grad_clip": 5.0,
+    "margin": 0.7,
+    "embed_dim": 32,
+    "channels": [
+      16,
+      32,
+      64
+    ],
+    "use_cca": false,
+    "cca": {
+      "r1": 0.001,
+      "r2": 0.001,
+      "rT": 0.001,
+      "alpha": 1.0
+    },
+    "augment": {
+      "image_scale": [
+        0.95,
+        1.05
+      ],
+      "image_translate": 5.0,
+      "audio_time_shift": 1,
+      "audio_tempo_jitter": 0.1
+    },
+    "num_workers": 0,
+    "fast_dev": true,
+    "data_dir": "E:\\SMT 5\\ML\\Projek\\msmd-learning\\data\\processed",
+    "train_limit": 2000,
+    "val_limit": 500
+  },
+  "seed": 42,
+  "device": "cpu",
+  "checkpoint": "E:\\SMT 5\\ML\\Projek\\msmd-learning\\checkpoints\\experiments\\t1_c1_smoke.pt",
+  "best_epoch": 1,
+  "best_val_metrics": {
+    "mrr_a2s": 0.014937078711408126,
+    "mrr_s2a": 0.013194266445768483,
+    "mrr_mean": 0.014065672578588304,
+    "n": 500
+  },
+  "best_val_mrr": 0.014065672578588304,
+  "training_seconds": 49.67344689369202,
+  "test": {
+    "snippet_retrieval": {
+      "paired_2018_audio_to_sheet": {
+        "R@1": 0.0004955401387512388,
+        "R@5": 0.002477700693756194,
+        "R@10": 0.004955401387512388,
+        "R@25": 0.01288404360753221,
+        "MRR": 0.004104526644932012,
+        "median_rank": 1009.5,
+        "mean_rank": 1003.400396432111,
+        "n_queries": 2018
+      },
+      "paired_2018_sheet_to_audio": {
+        "R@1": 0.0009910802775024777,
+        "R@5": 0.002973240832507433,
+        "R@10": 0.005450941526263627,
+        "R@25": 0.01288404360753221,
+        "MRR": 0.004440339831354825,
+        "median_rank": 1010.5,
+        "mean_rank": 1007.1665014866204,
+        "n_queries": 2018
+      },
+      "extended_audio_to_sheet": {
+        "R@1": 0.0002477700693756194,
+        "R@5": 0.0028493557978196233,
+        "R@10": 0.005079286422200198,
+        "R@25": 0.015609514370664023,
+        "MRR": 0.004064142998215044,
+        "median_rank": 988.0,
+        "mean_rank": 989.9820366699703,
+        "n_queries": 8072
+      },
+      "extended_sheet_to_audio": {
+        "R@1": 0.0004955401387512388,
+        "R@5": 0.0019821605550049554,
+        "R@10": 0.007433102081268583,
+        "R@25": 0.014370664023785926,
+        "MRR": 0.0038206811027331664,
+        "median_rank": 1424.0,
+        "mean_rank": 1514.8721506442023,
+        "n_queries": 2018
+      },
+      "random_paired_audio_to_sheet": {
+        "R@1": 0.0009910802775024777,
+        "R@5": 0.0019821605550049554,
+        "R@10": 0.0044598612487611496,
+        "R@25": 0.012388503468780971,
+        "MRR": 0.004168131324739041,
+        "median_rank": 1002.5,
+        "mean_rank": 1010.3914767096135,
+        "n_queries": 2018
+      }
+    },
+    "system_localization": {
+      "page_conditioned": {
+        "R@1": 0.2436818632309217,
+        "R@5": 0.9252973240832507,
+        "R@10": 1.0,
+        "R@25": 1.0,
+        "MRR": 0.4825012388503469,
+        "median_rank": 3.0,
+        "mean_rank": 2.985133795837463,
+        "n_queries": 8072
+      },
+      "full_collection": {
+        "R@1": 0.01263627353815659,
+        "R@5": 0.1262388503468781,
+        "R@10": 0.27527254707631316,
+        "R@25": 0.7249752229930624,
+        "MRR": 0.10726065294900192,
+        "median_rank": 18.0,
+        "mean_rank": 18.049677898909813,
+        "n_queries": 8072
+      },
+      "five_candidate": {
+        "R@1": 0.18644697720515363,
+        "R@5": 1.0,
+        "R@10": 1.0,
+        "R@25": 1.0,
+        "MRR": 0.45741038982490917,
+        "median_rank": 3.0,
+        "mean_rank": 2.9046085232903867,
+        "n_queries": 8072
+      }
+    },
+    "identification": {
+      "piece_audio_to_sheet_top25": {
+        "Rk@1": 1705,
+        "Rk@1_pct": 0.21122398414271557,
+        "Rk@5": 8072,
+        "Rk@5_pct": 1.0,
+        "Rk@10": 8072,
+        "Rk@10_pct": 1.0,
+        "n_queries": 8072
+      },
+      "piece_sheet_to_audio_top25": {
+        "Rk@1": 905,
+        "Rk@1_pct": 0.44846382556987113,
+        "Rk@5": 2018,
+        "Rk@5_pct": 1.0,
+        "Rk@10": 2018,
+        "Rk@10_pct": 1.0,
+        "n_queries": 2018
+      },
+      "page_audio_to_sheet_top25": {
+        "Rk@1": 791,
+        "Rk@1_pct": 0.09799306243805748,
+        "Rk@5": 5344,
+        "Rk@5_pct": 0.6620416253716551,
+        "Rk@10": 8072,
+        "Rk@10_pct": 1.0,
+        "n_queries": 8072
+      },
+      "page_sheet_to_audio_top25": {
+        "Rk@1": 453,
+        "Rk@1_pct": 0.2244796828543112,
+        "Rk@5": 1590,
+        "Rk@5_pct": 0.7879088206144698,
+        "Rk@10": 2018,
+        "Rk@10_pct": 1.0,
+        "n_queries": 2018
+      }
+    },
+    "rank_distributions": {
+      "snippet_extended_audio_to_sheet": {
+        "n": 8072,
+        "mean": 989.9820366699703,
+        "median": 988.0,
+        "p90": 1801.9000000000005,
+        "max": 2018.0
+      },
+      "system_page_conditioned": {
+        "n": 8072,
+        "mean": 2.985133795837463,
+        "median": 3.0,
+        "p90": 5.0,
+        "max": 6.0
+      },
+      "system_five_candidate": {
+        "n": 8072,
+        "mean": 2.9046085232903867,
+        "median": 3.0,
+        "p90": 5.0,
+        "max": 5.0
+      }
+    }
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.4582021527290344,
+      "mrr_a2s": 0.014937078711408126,
+      "mrr_s2a": 0.013194266445768483,
+      "mrr_mean": 0.014065672578588304,
+      "n": 500,
+      "lr": 0.002,
+      "seconds": 24.179020881652832
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.2531736378669739,
+      "mrr_a2s": 0.008583841022637453,
+      "mrr_s2a": 0.010992274884021538,
+      "mrr_mean": 0.009788057953329495,
+      "n": 500,
+      "lr": 0.002,
+      "seconds": 25.470255374908447
+    }
+  ]
+}

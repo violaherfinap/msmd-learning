@@ -1,0 +1,5 @@
+run_id : t1_c1_baseline
+config : configs\experiments\t1_c1_baseline.yaml
+device : cpu
+torch  : 2.15.0+cpu
+train batches 225 | val pairs 2,430

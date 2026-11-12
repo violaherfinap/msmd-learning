@@ -1,0 +1,14 @@
+run_id : t1_c1_smoke
+config : configs\experiments\t1_c1_baseline.yaml
+device : cpu
+torch  : 2.15.0+cpu
+train batches 16 | val pairs 500
+epoch 01 | loss 0.4582 | val MRR A2S 0.0149 | val MRR S2A 0.0132 | lr 2.00e-03 | 24.2s
+  -> checkpoint saved (best val MRR 0.0141)
+epoch 02 | loss 0.2532 | val MRR A2S 0.0086 | val MRR S2A 0.0110 | lr 2.00e-03 | 25.5s
+loaded epoch 1 | val {'mrr_a2s': 0.014937078711408126, 'mrr_s2a': 0.013194266445768483, 'mrr_mean': 0.014065672578588304, 'n': 500}
+test system page R@1 0.2437
+test system page R@5 0.9253
+test 5-candidate R@1 0.1864
+test snippet MRR 0.0041
+saved : E:\SMT 5\ML\Projek\msmd-learning\reports\experiments\t1_c1_smoke
