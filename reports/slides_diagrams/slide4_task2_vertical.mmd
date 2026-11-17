@@ -1,0 +1,17 @@
+flowchart TB
+    S["Score crop<br/>referensi"] --> SE["Sheet Encoder<br/>TRAINABLE<br/>init dari Task 1"]
+    A["Error audio<br/>window"] --> AE["Audio Encoder<br/>TRAINABLE<br/>init dari Task 1"]
+    SE --> F["Fusion<br/>x, y, x*y, abs(x-y)"]
+    AE --> F
+    F --> M["MLP 128"]
+    M --> O["4 kelas<br/>correct / wrong pitch<br/>missing / extra"]
+
+    classDef navyBox fill:#0B1F3A,stroke:#0B1F3A,color:#FFFFFF,stroke-width:1.5px;
+    classDef pinkBox fill:#E85D9E,stroke:#0B1F3A,color:#111111,stroke-width:1.5px;
+    classDef whitePink fill:#FFFFFF,stroke:#E85D9E,color:#111111,stroke-width:1.5px;
+    classDef outputBox fill:#0B1F3A,stroke:#E85D9E,color:#FFFFFF,stroke-width:2px;
+
+    class S,SE navyBox;
+    class A,AE pinkBox;
+    class F,M whitePink;
+    class O outputBox;

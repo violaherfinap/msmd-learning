@@ -1,0 +1,39 @@
+flowchart TB
+    subgraph T1["Task 1 — Score–Audio Alignment"]
+        direction LR
+        S1["Score crop<br/>1×100×80"] --> SE1["Sheet Encoder<br/>4 blok 24/48/96/96"]
+        A1["Audio window<br/>1×92×42"] --> AE1["Audio Encoder<br/>4 blok 24/48/96/96"]
+        SE1 --> C1["CCA 32-d"]
+        AE1 --> C1
+        C1 --> L1["Cosine + ranking hinge<br/>margin 0.7; batch 100"]
+    end
+
+    subgraph T2["Task 2 — Performance Error Detection"]
+        direction LR
+        S2["Score crop<br/>referensi"] --> SE2["Sheet Encoder<br/>TRAINABLE"]
+        A2["Error audio window"] --> AE2["Audio Encoder<br/>TRAINABLE"]
+        SE2 --> F2["Fusion<br/>x, y, x*y, abs(x-y)"]
+        AE2 --> F2
+        F2 --> M2["MLP 128"] --> O2["4 classes"]
+    end
+
+    SE1 -. "init weights" .-> SE2
+    AE1 -. "init weights" .-> AE2
+
+    classDef navyBox fill:#0B1F3A,stroke:#0B1F3A,color:#FFFFFF,stroke-width:1.5px;
+    classDef pinkBox fill:#E85D9E,stroke:#0B1F3A,color:#111111,stroke-width:1.5px;
+    classDef whiteNavy fill:#FFFFFF,stroke:#0B1F3A,color:#111111,stroke-width:1.5px;
+    classDef whitePink fill:#FFFFFF,stroke:#E85D9E,color:#111111,stroke-width:1.5px;
+    classDef outputBox fill:#0B1F3A,stroke:#E85D9E,color:#FFFFFF,stroke-width:2px;
+
+    class S1,SE1 navyBox;
+    class A1,AE1 pinkBox;
+    class C1 whiteNavy;
+    class L1 whitePink;
+    class S2,SE2 navyBox;
+    class A2,AE2 pinkBox;
+    class F2,M2 whitePink;
+    class O2 outputBox;
+
+    style T1 fill:#FFFFFF,stroke:#0B1F3A,stroke-width:2px,color:#0B1F3A;
+    style T2 fill:#FFFFFF,stroke:#E85D9E,stroke-width:2px,color:#111111;

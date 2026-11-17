@@ -1,0 +1,16 @@
+flowchart TB
+    S["Score crop<br/>1×100×80"] --> SE["Sheet Encoder<br/>4 blok 24/48/96/96<br/>Conv1×1-32 + GAP"]
+    A["Audio window<br/>1×92×42"] --> AE["Audio Encoder<br/>4 blok 24/48/96/96<br/>Conv1×1-32 + GAP"]
+    SE --> CCA["CCA layer<br/>32-d, warmup 200 step"]
+    AE --> CCA
+    CCA --> L["Cosine + ranking hinge<br/>margin 0.7; batch 100"]
+
+    classDef navyBox fill:#0B1F3A,stroke:#0B1F3A,color:#FFFFFF,stroke-width:1.5px;
+    classDef pinkBox fill:#E85D9E,stroke:#0B1F3A,color:#111111,stroke-width:1.5px;
+    classDef whiteNavy fill:#FFFFFF,stroke:#0B1F3A,color:#111111,stroke-width:1.5px;
+    classDef accentBox fill:#FFFFFF,stroke:#E85D9E,color:#111111,stroke-width:2px;
+
+    class S,SE navyBox;
+    class A,AE pinkBox;
+    class CCA whiteNavy;
+    class L accentBox;

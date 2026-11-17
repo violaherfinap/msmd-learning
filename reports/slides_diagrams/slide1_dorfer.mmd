@@ -1,0 +1,18 @@
+flowchart TB
+    S["Sheet<br/>160×200 → 80×100"] --> SE["Sheet encoder<br/>4 blok 24/48/96/96<br/>Conv1×1-32 + GAP"]
+    A["Audio<br/>92×42"] --> AE["Audio encoder<br/>4 blok 24/48/96/96<br/>Conv1×1-32 + GAP"]
+    SE --> CCA["CCA embedding"]
+    AE --> CCA
+    CCA --> Z["32-d + L2"]
+    Z --> C["Cosine similarity"]
+    C --> L["Ranking loss<br/>α = 0.7; batch 100"]
+
+    classDef navyBox fill:#0B1F3A,stroke:#0B1F3A,color:#FFFFFF,stroke-width:1.5px;
+    classDef pinkBox fill:#E85D9E,stroke:#0B1F3A,color:#111111,stroke-width:1.5px;
+    classDef whiteBox fill:#FFFFFF,stroke:#111111,color:#111111,stroke-width:1.5px;
+    classDef accentBox fill:#FFFFFF,stroke:#E85D9E,color:#111111,stroke-width:2px;
+
+    class S,SE navyBox;
+    class A,AE pinkBox;
+    class CCA,Z whiteBox;
+    class C,L accentBox;
