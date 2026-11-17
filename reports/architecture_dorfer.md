@@ -17,7 +17,7 @@ flowchart LR
         AU["Audio performance"] --> AE2["Audio Encoder<br/>TRAINABLE"]
         SE2 --> FU["Fusion<br/>x, y, x*y, abs(x-y)"]
         AE2 --> FU
-        FU --> MLP["MLP 128"] --> OUT["correct / wrong pitch / missing / extra"]
+        FU --> MLP["MLP 128"] --> OUT["4 kelas"]
     end
 
     SE -. "init weights" .-> SE2
@@ -29,25 +29,18 @@ flowchart LR
     classDef whitePink fill:#FFFFFF,stroke:#E85D9E,color:#111111,stroke-width:1.5px;
     classDef outputBox fill:#0B1F3A,stroke:#E85D9E,color:#FFFFFF,stroke-width:2px;
 
-    class SI,SE navyBox;
-    class AI,AE pinkBox;
+    class SI,SE,SC,SE2 navyBox;
+    class AI,AE,AU,AE2 pinkBox;
     class CCA whiteNavy;
-    class RL whitePink;
-    class SC,SE2 navyBox;
-    class AU,AE2 pinkBox;
-    class FU,MLP whitePink;
+    class RL,FU,MLP whitePink;
     class OUT outputBox;
-
-    style T1 fill:#FFFFFF,stroke:#0B1F3A,stroke-width:2px,color:#0B1F3A;
-    style T2 fill:#FFFFFF,stroke:#E85D9E,stroke-width:2px,color:#111111;
 ```
 
-**Detail satu encoder:** 2x Conv3x3 + BN + ELU + MP2, diulang untuk 24 -> 48 -> 96 -> 96 channel, lalu Conv1x1-32 + BN + GAP, output 32-d.
-
-**Perbedaan dengan paper:** tidak ada. Baseline ini memakai konfigurasi arsitektur paper (4 blok, 24/48/96/96, CCA, margin 0.7, batch 100). Yang berbeda hanya skala data (subset pilot) dan panjang training.
+**Satu encoder:** 2× Conv3×3 + BN + ELU + MP2, diulang untuk 24 → 48 → 96 → 96
+channel, lalu Conv1×1-32 + BN + GAP → 32-d.
 
 **Catatan:**
-- Task 1 dilatih dari nol dengan CCA aktif; CCA mulai di-update setelah 200 step warmup dan memakai running covariance `alpha = 0.05`.
-- Task 2 memakai bobot encoder Task 1 sebagai inisialisasi.
-- Task 2 melatih **kedua encoder** dan fusion classifier; tidak ada komponen yang dibekukan.
-- Task 2 tidak memakai CCA karena klasifikasi tidak punya pasangan lintas modalitas; classifier memakai output trunk 32-d.
+- Task 1 dilatih dari nol, CCA aktif, warmup 200 step, running covariance `alpha=0.05`.
+- Task 2 memakai bobot Task 1 sebagai inisialisasi dan melatih kedua encoder.
+- Tidak ada komponen frozen di baseline ini.
+- Task 2 tidak memakai CCA; classifier memakai output trunk 32-d.
