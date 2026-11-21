@@ -1,0 +1,31 @@
+{
+  "profile": "dorfer-full",
+  "seed": 42,
+  "device": "auto",
+  "threads": null,
+  "embed_dim": 32,
+  "channels": [
+    24,
+    48,
+    96,
+    96
+  ],
+  "hidden_dim": 128,
+  "dropout": 0.2,
+  "num_classes": 4,
+  "batch_size": 256,
+  "eval_batch_size": 512,
+  "epochs": 8,
+  "early_stop_patience": 3,
+  "lr_encoder": 0.0003,
+  "lr_head": 0.001,
+  "weight_decay": 1e-05,
+  "grad_clip": 5.0,
+  "freeze_sheet": false,
+  "train_one_variant_per_source": true,
+  "num_workers": 0,
+  "fast_dev": false,
+  "augmentation": {},
+  "variant": "multimodal",
+  "holdout_soundfont": "ElectricPiano"
+}

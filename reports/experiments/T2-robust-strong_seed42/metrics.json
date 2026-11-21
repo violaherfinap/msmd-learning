@@ -1,0 +1,756 @@
+{
+  "config": {
+    "profile": "dorfer-full",
+    "seed": 42,
+    "device": "auto",
+    "threads": null,
+    "embed_dim": 32,
+    "channels": [
+      24,
+      48,
+      96,
+      96
+    ],
+    "hidden_dim": 128,
+    "dropout": 0.2,
+    "num_classes": 4,
+    "batch_size": 256,
+    "eval_batch_size": 512,
+    "epochs": 8,
+    "early_stop_patience": 3,
+    "lr_encoder": 0.0003,
+    "lr_head": 0.001,
+    "weight_decay": 1e-05,
+    "grad_clip": 5.0,
+    "freeze_sheet": false,
+    "train_one_variant_per_source": true,
+    "num_workers": 0,
+    "fast_dev": false,
+    "augmentation": {
+      "audio_noise_prob": 0.7,
+      "audio_noise_snr": [
+        5.0,
+        15.0
+      ],
+      "time_mask_prob": 0.7,
+      "time_mask_width": [
+        1,
+        8
+      ],
+      "frequency_mask_prob": 0.7,
+      "frequency_mask_width": [
+        1,
+        12
+      ],
+      "score_noise_prob": 0.3,
+      "score_noise_sigma": [
+        0.02,
+        0.08
+      ],
+      "score_cutout_prob": 0.3,
+      "score_cutout_size": [
+        8,
+        20
+      ]
+    }
+  },
+  "augmentation": {
+    "audio_noise_prob": 0.7,
+    "audio_noise_snr": [
+      5.0,
+      15.0
+    ],
+    "time_mask_prob": 0.7,
+    "time_mask_width": [
+      1,
+      8
+    ],
+    "frequency_mask_prob": 0.7,
+    "frequency_mask_width": [
+      1,
+      12
+    ],
+    "score_noise_prob": 0.3,
+    "score_noise_sigma": [
+      0.02,
+      0.08
+    ],
+    "score_cutout_prob": 0.3,
+    "score_cutout_size": [
+      8,
+      20
+    ]
+  },
+  "seed": 42,
+  "device": "cpu",
+  "checkpoint": "E:\\SMT 5\\ML\\Projek-Dofter-Full\\msmd-learning\\checkpoints\\T2-robust-strong_seed42\\best.pt",
+  "task1_checkpoint": "E:\\SMT 5\\ML\\Projek-Dofter-Full\\msmd-learning\\checkpoints\\T1-C1_seed42\\best.pt",
+  "best_checkpoint_epoch": 6,
+  "best_val_metrics": {
+    "accuracy": 0.9474022633744856,
+    "macro_f1": 0.9474575637419043,
+    "per_class": {
+      "correct": {
+        "precision": 0.9503761086785674,
+        "recall": 0.8708847736625515,
+        "f1": 0.9088956890535244,
+        "support": 9720
+      },
+      "wrong_pitch": {
+        "precision": 0.9760635623051392,
+        "recall": 0.9984567901234568,
+        "f1": 0.9871331943243654,
+        "support": 9720
+      },
+      "missing_note": {
+        "precision": 0.999466268146883,
+        "recall": 0.9632716049382716,
+        "f1": 0.981035205364627,
+        "support": 9720
+      },
+      "extra_note": {
+        "precision": 0.8724441943350215,
+        "recall": 0.9569958847736626,
+        "f1": 0.9127661662251005,
+        "support": 9720
+      }
+    },
+    "confusion_matrix": [
+      [
+        8465,
+        5,
+        4,
+        1246
+      ],
+      [
+        1,
+        9705,
+        0,
+        14
+      ],
+      [
+        57,
+        200,
+        9363,
+        100
+      ],
+      [
+        384,
+        33,
+        1,
+        9302
+      ]
+    ],
+    "n": 38880,
+    "top2_accuracy": 0.9934670781893004
+  },
+  "test_metrics": {
+    "accuracy": 0.988943260654113,
+    "macro_f1": 0.9889637607893267,
+    "per_class": {
+      "correct": {
+        "precision": 0.967702915205032,
+        "recall": 0.9910802775024777,
+        "f1": 0.9792520962115184,
+        "support": 8072
+      },
+      "wrong_pitch": {
+        "precision": 1.0,
+        "recall": 0.9987611496531219,
+        "f1": 0.9993801909012024,
+        "support": 8072
+      },
+      "missing_note": {
+        "precision": 0.9998752806186081,
+        "recall": 0.9931863230921705,
+        "f1": 0.9965195773772529,
+        "support": 8072
+      },
+      "extra_note": {
+        "precision": 0.98879234353356,
+        "recall": 0.9727452923686819,
+        "f1": 0.9807031786673328,
+        "support": 8072
+      }
+    },
+    "confusion_matrix": [
+      [
+        8000,
+        0,
+        0,
+        72
+      ],
+      [
+        5,
+        8062,
+        1,
+        4
+      ],
+      [
+        42,
+        0,
+        8017,
+        13
+      ],
+      [
+        220,
+        0,
+        0,
+        7852
+      ]
+    ],
+    "n": 32288,
+    "top2_accuracy": 0.9997832011892963
+  },
+  "binary_correct_vs_error": {
+    "accuracy": 0.9895007433102081,
+    "precision": 0.997002622705133,
+    "recall": 0.9889742319127849,
+    "f1": 0.9929721997636669,
+    "tp": 23949,
+    "tn": 8000,
+    "fp": 72,
+    "fn": 267
+  },
+  "error_type_3class": {
+    "accuracy": 0.9992484028560692,
+    "macro_f1": 0.9992454201269084,
+    "per_class": {
+      "wrong_pitch": {
+        "precision": 1.0,
+        "recall": 0.9993801909012024,
+        "f1": 0.9996899993799988,
+        "support": 8067
+      },
+      "missing_note": {
+        "precision": 0.9998752806186081,
+        "recall": 0.9983810709838107,
+        "f1": 0.9991276171485542,
+        "support": 8030
+      },
+      "extra_note": {
+        "precision": 0.9978396238403864,
+        "recall": 1.0,
+        "f1": 0.9989186438521723,
+        "support": 7852
+      }
+    },
+    "confusion_matrix": [
+      [
+        8062,
+        1,
+        4
+      ],
+      [
+        0,
+        8017,
+        13
+      ],
+      [
+        0,
+        0,
+        7852
+      ]
+    ],
+    "n": 23949,
+    "coverage_of_true_errors": 0.9889742319127849
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.8194847904864064,
+      "accuracy": 0.7558641975308642,
+      "macro_f1": 0.7270482627186768,
+      "per_class": {
+        "correct": {
+          "precision": 0.5270022042615724,
+          "recall": 0.8854938271604939,
+          "f1": 0.6607554122524183,
+          "support": 9720
+        },
+        "wrong_pitch": {
+          "precision": 0.9532012346908294,
+          "recall": 0.9848765432098765,
+          "f1": 0.9687800435156605,
+          "support": 9720
+        },
+        "missing_note": {
+          "precision": 0.9958932238193019,
+          "recall": 0.948045267489712,
+          "f1": 0.9713803826490276,
+          "support": 9720
+        },
+        "extra_note": {
+          "precision": 0.6128536285362853,
+          "recall": 0.2050411522633745,
+          "f1": 0.307277212457601,
+          "support": 9720
+        }
+      },
+      "confusion_matrix": [
+        [
+          8607,
+          20,
+          21,
+          1072
+        ],
+        [
+          5,
+          9573,
+          6,
+          136
+        ],
+        [
+          55,
+          399,
+          9215,
+          51
+        ],
+        [
+          7665,
+          51,
+          11,
+          1993
+        ]
+      ],
+      "n": 38880,
+      "top2_accuracy": 0.9922582304526749,
+      "lr_head": 0.001,
+      "seconds": 685.1572844982147
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.33642323517318057,
+      "accuracy": 0.9171553497942386,
+      "macro_f1": 0.917138155045097,
+      "per_class": {
+        "correct": {
+          "precision": 0.8810081409613025,
+          "recall": 0.8127572016460906,
+          "f1": 0.8455075721089528,
+          "support": 9720
+        },
+        "wrong_pitch": {
+          "precision": 0.9714285714285714,
+          "recall": 0.9969135802469136,
+          "f1": 0.984006092916984,
+          "support": 9720
+        },
+        "missing_note": {
+          "precision": 0.9992563476043769,
+          "recall": 0.9676954732510288,
+          "f1": 0.9832227042282965,
+          "support": 9720
+        },
+        "extra_note": {
+          "precision": 0.8230878859857482,
+          "recall": 0.8912551440329218,
+          "f1": 0.8558162509261545,
+          "support": 9720
+        }
+      },
+      "confusion_matrix": [
+        [
+          7900,
+          9,
+          1,
+          1810
+        ],
+        [
+          0,
+          9690,
+          6,
+          24
+        ],
+        [
+          24,
+          262,
+          9406,
+          28
+        ],
+        [
+          1043,
+          14,
+          0,
+          8663
+        ]
+      ],
+      "n": 38880,
+      "top2_accuracy": 0.9925154320987655,
+      "lr_head": 0.001,
+      "seconds": 655.2772064208984
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.2259716998294302,
+      "accuracy": 0.9242798353909465,
+      "macro_f1": 0.9240939663085944,
+      "per_class": {
+        "correct": {
+          "precision": 0.8557294295810197,
+          "recall": 0.8720164609053498,
+          "f1": 0.8637961783439491,
+          "support": 9720
+        },
+        "wrong_pitch": {
+          "precision": 0.9749042531747631,
+          "recall": 0.9951646090534979,
+          "f1": 0.9849302515018836,
+          "support": 9720
+        },
+        "missing_note": {
+          "precision": 0.9972981398732204,
+          "recall": 0.9873456790123457,
+          "f1": 0.9922969549707904,
+          "support": 9720
+        },
+        "extra_note": {
+          "precision": 0.8685047720042418,
+          "recall": 0.8425925925925926,
+          "f1": 0.8553524804177545,
+          "support": 9720
+        }
+      },
+      "confusion_matrix": [
+        [
+          8476,
+          27,
+          1,
+          1216
+        ],
+        [
+          0,
+          9673,
+          23,
+          24
+        ],
+        [
+          0,
+          123,
+          9597,
+          0
+        ],
+        [
+          1429,
+          99,
+          2,
+          8190
+        ]
+      ],
+      "n": 38880,
+      "top2_accuracy": 0.993261316872428,
+      "lr_head": 0.001,
+      "seconds": 654.7993011474609
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.18091059315559385,
+      "accuracy": 0.9205761316872428,
+      "macro_f1": 0.9200431054018972,
+      "per_class": {
+        "correct": {
+          "precision": 0.9755629477993859,
+          "recall": 0.7844650205761317,
+          "f1": 0.8696395985401459,
+          "support": 9720
+        },
+        "wrong_pitch": {
+          "precision": 0.9251357272121155,
+          "recall": 0.9992798353909464,
+          "f1": 0.9607794648597853,
+          "support": 9720
+        },
+        "missing_note": {
+          "precision": 0.999221703357794,
+          "recall": 0.9245884773662552,
+          "f1": 0.9604574115635354,
+          "support": 9720
+        },
+        "extra_note": {
+          "precision": 0.8181661049174661,
+          "recall": 0.9739711934156379,
+          "f1": 0.889295946644122,
+          "support": 9720
+        }
+      },
+      "confusion_matrix": [
+        [
+          7625,
+          19,
+          5,
+          2071
+        ],
+        [
+          0,
+          9713,
+          1,
+          6
+        ],
+        [
+          1,
+          705,
+          8987,
+          27
+        ],
+        [
+          190,
+          62,
+          1,
+          9467
+        ]
+      ],
+      "n": 38880,
+      "top2_accuracy": 0.9919495884773663,
+      "lr_head": 0.001,
+      "seconds": 600.1726322174072
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.15062045188594106,
+      "accuracy": 0.943261316872428,
+      "macro_f1": 0.9431423110268806,
+      "per_class": {
+        "correct": {
+          "precision": 0.9764305673672701,
+          "recall": 0.8268518518518518,
+          "f1": 0.8954375800791042,
+          "support": 9720
+        },
+        "wrong_pitch": {
+          "precision": 0.97694553508507,
+          "recall": 0.9983539094650206,
+          "f1": 0.9875337098661782,
+          "support": 9720
+        },
+        "missing_note": {
+          "precision": 0.9997872793022761,
+          "recall": 0.9670781893004116,
+          "f1": 0.9831607572429663,
+          "support": 9720
+        },
+        "extra_note": {
+          "precision": 0.8425844086971893,
+          "recall": 0.980761316872428,
+          "f1": 0.9064371969192736,
+          "support": 9720
+        }
+      },
+      "confusion_matrix": [
+        [
+          8037,
+          3,
+          0,
+          1680
+        ],
+        [
+          1,
+          9704,
+          2,
+          13
+        ],
+        [
+          21,
+          211,
+          9400,
+          88
+        ],
+        [
+          172,
+          15,
+          0,
+          9533
+        ]
+      ],
+      "n": 38880,
+      "top2_accuracy": 0.9914094650205761,
+      "lr_head": 0.001,
+      "seconds": 631.0840954780579
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.13445204787975482,
+      "accuracy": 0.9474022633744856,
+      "macro_f1": 0.9474575637419043,
+      "per_class": {
+        "correct": {
+          "precision": 0.9503761086785674,
+          "recall": 0.8708847736625515,
+          "f1": 0.9088956890535244,
+          "support": 9720
+        },
+        "wrong_pitch": {
+          "precision": 0.9760635623051392,
+          "recall": 0.9984567901234568,
+          "f1": 0.9871331943243654,
+          "support": 9720
+        },
+        "missing_note": {
+          "precision": 0.999466268146883,
+          "recall": 0.9632716049382716,
+          "f1": 0.981035205364627,
+          "support": 9720
+        },
+        "extra_note": {
+          "precision": 0.8724441943350215,
+          "recall": 0.9569958847736626,
+          "f1": 0.9127661662251005,
+          "support": 9720
+        }
+      },
+      "confusion_matrix": [
+        [
+          8465,
+          5,
+          4,
+          1246
+        ],
+        [
+          1,
+          9705,
+          0,
+          14
+        ],
+        [
+          57,
+          200,
+          9363,
+          100
+        ],
+        [
+          384,
+          33,
+          1,
+          9302
+        ]
+      ],
+      "n": 38880,
+      "top2_accuracy": 0.9934670781893004,
+      "lr_head": 0.001,
+      "seconds": 644.171196937561
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.12919027042687664,
+      "accuracy": 0.9410236625514403,
+      "macro_f1": 0.94112256542047,
+      "per_class": {
+        "correct": {
+          "precision": 0.9795430075367867,
+          "recall": 0.8423868312757201,
+          "f1": 0.9058023120747828,
+          "support": 9720
+        },
+        "wrong_pitch": {
+          "precision": 0.9638817225640008,
+          "recall": 0.9993827160493827,
+          "f1": 0.9813112435599555,
+          "support": 9720
+        },
+        "missing_note": {
+          "precision": 1.0,
+          "recall": 0.9434156378600823,
+          "f1": 0.9708840656431974,
+          "support": 9720
+        },
+        "extra_note": {
+          "precision": 0.8440521600283865,
+          "recall": 0.9789094650205762,
+          "f1": 0.9064926404039443,
+          "support": 9720
+        }
+      },
+      "confusion_matrix": [
+        [
+          8188,
+          7,
+          0,
+          1525
+        ],
+        [
+          0,
+          9714,
+          0,
+          6
+        ],
+        [
+          5,
+          318,
+          9170,
+          227
+        ],
+        [
+          166,
+          39,
+          0,
+          9515
+        ]
+      ],
+      "n": 38880,
+      "top2_accuracy": 0.9858024691358025,
+      "lr_head": 0.001,
+      "seconds": 644.3903148174286
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.12165714971101371,
+      "accuracy": 0.9418724279835391,
+      "macro_f1": 0.9420854588111429,
+      "per_class": {
+        "correct": {
+          "precision": 0.9887487636003957,
+          "recall": 0.8227366255144033,
+          "f1": 0.8981356693620844,
+          "support": 9720
+        },
+        "wrong_pitch": {
+          "precision": 0.9857954545454546,
+          "recall": 0.9995884773662551,
+          "f1": 0.9926440539436044,
+          "support": 9720
+        },
+        "missing_note": {
+          "precision": 1.0,
+          "recall": 0.9543209876543209,
+          "f1": 0.9766266582438408,
+          "support": 9720
+        },
+        "extra_note": {
+          "precision": 0.8259862778730703,
+          "recall": 0.9908436213991769,
+          "f1": 0.9009354536950421,
+          "support": 9720
+        }
+      },
+      "confusion_matrix": [
+        [
+          7997,
+          0,
+          0,
+          1723
+        ],
+        [
+          0,
+          9716,
+          0,
+          4
+        ],
+        [
+          12,
+          130,
+          9276,
+          302
+        ],
+        [
+          79,
+          10,
+          0,
+          9631
+        ]
+      ],
+      "n": 38880,
+      "top2_accuracy": 0.9904578189300411,
+      "lr_head": 0.001,
+      "seconds": 637.063817024231
+    }
+  ]
+}

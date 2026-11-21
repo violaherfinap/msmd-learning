@@ -1,0 +1,4 @@
+model,macro_f1,accuracy,top2_accuracy,best_epoch,best_val_macro_f1
+historical baseline,0.995447,0.995447,1.0,8,0.975496
+reproduced baseline,0.992938,0.992939,1.0,5,0.979294
+robust,0.987118,0.987054,0.999752,6,0.965636

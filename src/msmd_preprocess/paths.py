@@ -15,4 +15,9 @@ def long_path(path: str | Path) -> str:
 
 
 def relative_posix(path: str | Path, root: str | Path) -> str:
-    return Path(path).resolve().relative_to(Path(root).resolve()).as_posix()
+    resolved = Path(os.path.abspath(path))
+    root_path = Path(os.path.abspath(root))
+    try:
+        return resolved.relative_to(root_path).as_posix()
+    except ValueError:
+        return resolved.as_posix()

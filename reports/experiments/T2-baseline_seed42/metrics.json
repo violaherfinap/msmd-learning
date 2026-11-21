@@ -1,0 +1,319 @@
+{
+  "paper": "Dorfer et al. (2018), TISMIR 1(1):22-33",
+  "task": "Task 2 - performance error detection (adapted baseline)",
+  "note": "Task 2 is not a task in the original Dorfer paper. This is an adapted baseline: Task 1 encoders + fusion classifier. Score reference is the source notehead crop, not a full page/system.",
+  "config": {
+    "profile": "dorfer-full",
+    "seed": 42,
+    "device": "auto",
+    "threads": null,
+    "embed_dim": 32,
+    "channels": [
+      24,
+      48,
+      96,
+      96
+    ],
+    "hidden_dim": 128,
+    "dropout": 0.2,
+    "num_classes": 4,
+    "batch_size": 256,
+    "eval_batch_size": 512,
+    "epochs": 8,
+    "early_stop_patience": 3,
+    "lr_encoder": 0.0003,
+    "lr_head": 0.001,
+    "weight_decay": 1e-05,
+    "grad_clip": 5.0,
+    "freeze_sheet": false,
+    "train_one_variant_per_source": true,
+    "num_workers": 0,
+    "fast_dev": false
+  },
+  "seed": 42,
+  "device": "cpu",
+  "checkpoint": "E:\\SMT 5\\ML\\Projek-Dofter-Full\\msmd-learning\\checkpoints\\T2-baseline_seed42\\best.pt",
+  "task1_checkpoint": "E:\\SMT 5\\ML\\Projek-Dofter-Full\\msmd-learning\\checkpoints\\T1-C1_seed42\\best.pt",
+  "best_checkpoint_epoch": 5,
+  "best_val_metrics": {
+    "accuracy": 0.979295267489712,
+    "macro_f1": 0.9792944124151512,
+    "per_class": {
+      "correct": {
+        "precision": 0.9667189952904238,
+        "recall": 0.9503086419753086,
+        "f1": 0.9584435797665369,
+        "support": 9720
+      },
+      "wrong_pitch": {
+        "precision": 0.9996914215182061,
+        "recall": 0.9998971193415638,
+        "f1": 0.9997942598498095,
+        "support": 9720
+      },
+      "missing_note": {
+        "precision": 1.0,
+        "recall": 0.9996913580246913,
+        "f1": 0.9998456551937027,
+        "support": 9720
+      },
+      "extra_note": {
+        "precision": 0.9510418774023872,
+        "recall": 0.967283950617284,
+        "f1": 0.9590941548505559,
+        "support": 9720
+      }
+    },
+    "confusion_matrix": [
+      [
+        9237,
+        0,
+        0,
+        483
+      ],
+      [
+        0,
+        9719,
+        0,
+        1
+      ],
+      [
+        0,
+        3,
+        9717,
+        0
+      ],
+      [
+        318,
+        0,
+        0,
+        9402
+      ]
+    ],
+    "n": 38880,
+    "top2_accuracy": 0.9993827160493827
+  },
+  "test_metrics": {
+    "accuracy": 0.9929385530227949,
+    "macro_f1": 0.9929383930839085,
+    "per_class": {
+      "correct": {
+        "precision": 0.9813474045895202,
+        "recall": 0.9907086223984143,
+        "f1": 0.9860057949571545,
+        "support": 8072
+      },
+      "wrong_pitch": {
+        "precision": 1.0,
+        "recall": 0.9998761149653121,
+        "f1": 0.9999380536455429,
+        "support": 8072
+      },
+      "missing_note": {
+        "precision": 0.9998761303109129,
+        "recall": 1.0,
+        "f1": 0.9999380613192939,
+        "support": 8072
+      },
+      "extra_note": {
+        "precision": 0.9906191369606003,
+        "recall": 0.981169474727453,
+        "f1": 0.985871662413643,
+        "support": 8072
+      }
+    },
+    "confusion_matrix": [
+      [
+        7997,
+        0,
+        0,
+        75
+      ],
+      [
+        0,
+        8071,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        8072,
+        0
+      ],
+      [
+        152,
+        0,
+        0,
+        7920
+      ]
+    ],
+    "n": 32288,
+    "top2_accuracy": 1.0
+  },
+  "binary_correct_vs_error": {
+    "accuracy": 0.9929695242814668,
+    "precision": 0.9968929947388044,
+    "recall": 0.9937231582424844,
+    "f1": 0.99530555268328,
+    "tp": 24064,
+    "tn": 7997,
+    "fp": 75,
+    "fn": 152
+  },
+  "error_type_3class": {
+    "accuracy": 0.9999584441489362,
+    "macro_f1": 0.9999587049882789,
+    "per_class": {
+      "wrong_pitch": {
+        "precision": 1.0,
+        "recall": 0.9998761149653121,
+        "f1": 0.9999380536455429,
+        "support": 8072
+      },
+      "missing_note": {
+        "precision": 0.9998761303109129,
+        "recall": 1.0,
+        "f1": 0.9999380613192939,
+        "support": 8072
+      },
+      "extra_note": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 7920
+      }
+    },
+    "confusion_matrix": [
+      [
+        8071,
+        1,
+        0
+      ],
+      [
+        0,
+        8072,
+        0
+      ],
+      [
+        0,
+        0,
+        7920
+      ]
+    ],
+    "n": 24064,
+    "coverage_of_true_errors": 0.9937231582424844
+  },
+  "error_analysis": [
+    {
+      "group": "soundfont",
+      "value": "ElectricPiano",
+      "n": 8072,
+      "accuracy": 0.9868681863230921
+    },
+    {
+      "group": "soundfont",
+      "value": "YamahaGrandPiano",
+      "n": 8072,
+      "accuracy": 0.9931863230921705
+    },
+    {
+      "group": "soundfont",
+      "value": "acoustic_piano_imis_1",
+      "n": 8072,
+      "accuracy": 0.9998761149653121
+    },
+    {
+      "group": "soundfont",
+      "value": "grand-piano-YDP-20160804",
+      "n": 8072,
+      "accuracy": 0.9918235877106045
+    },
+    {
+      "group": "pitch_delta_bin",
+      "value": "1",
+      "n": 701,
+      "accuracy": 1.0
+    },
+    {
+      "group": "pitch_delta_bin",
+      "value": "2",
+      "n": 659,
+      "accuracy": 1.0
+    },
+    {
+      "group": "pitch_delta_bin",
+      "value": "3",
+      "n": 685,
+      "accuracy": 1.0
+    },
+    {
+      "group": "pitch_delta_bin",
+      "value": "4-5",
+      "n": 1340,
+      "accuracy": 1.0
+    },
+    {
+      "group": "pitch_delta_bin",
+      "value": "6-12",
+      "n": 4687,
+      "accuracy": 0.9997866439086835
+    },
+    {
+      "group": "template_method",
+      "value": "bank",
+      "n": 16140,
+      "accuracy": 0.9905204460966542
+    },
+    {
+      "group": "template_method",
+      "value": "fallback_overlap",
+      "n": 4,
+      "accuracy": 1.0
+    },
+    {
+      "group": "template_method",
+      "value": "n/a",
+      "n": 16144,
+      "accuracy": 0.9953543111992071
+    },
+    {
+      "group": "fallback",
+      "value": "False",
+      "n": 32284,
+      "accuracy": 0.9929376781068021
+    },
+    {
+      "group": "fallback",
+      "value": "True",
+      "n": 4,
+      "accuracy": 1.0
+    },
+    {
+      "group": "duration_bin",
+      "value": "5-8",
+      "n": 15024,
+      "accuracy": 0.9893503727369543
+    },
+    {
+      "group": "duration_bin",
+      "value": "9-16",
+      "n": 4864,
+      "accuracy": 0.9950657894736842
+    },
+    {
+      "group": "duration_bin",
+      "value": "17-32",
+      "n": 8224,
+      "accuracy": 0.9962305447470817
+    },
+    {
+      "group": "duration_bin",
+      "value": ">32",
+      "n": 4176,
+      "accuracy": 0.9968869731800766
+    }
+  ],
+  "history_available": false,
+  "history_note": "Training run was interrupted after checkpointing; test evaluation uses the saved best checkpoint."
+}

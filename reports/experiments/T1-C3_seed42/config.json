@@ -1,0 +1,94 @@
+{
+  "variant": "C3",
+  "run_id": "T1-C3_seed42",
+  "config": {
+    "profile": "dorfer-full",
+    "seed": 42,
+    "device": "auto",
+    "threads": null,
+    "batch_size": 100,
+    "eval_batch_size": 256,
+    "epochs": 8,
+    "early_stop_patience": 3,
+    "lr": 0.002,
+    "weight_decay": 0.0001,
+    "grad_clip": 5.0,
+    "margin": 0.7,
+    "embed_dim": 32,
+    "channels": [
+      24,
+      48,
+      96,
+      96
+    ],
+    "use_cca": true,
+    "cca": {
+      "r1": 0.001,
+      "r2": 0.001,
+      "rT": 0.001,
+      "alpha": 0.05,
+      "warmup_steps": 200
+    },
+    "augment": {
+      "image_scale": [
+        0.95,
+        1.05
+      ],
+      "image_translate": 5.0,
+      "audio_time_shift": 1,
+      "audio_tempo_jitter": 0.1
+    },
+    "num_workers": 0,
+    "fast_dev": false,
+    "dropout": 0.0,
+    "mining": "hard",
+    "mining_k": 10,
+    "mining_warmup_epochs": 1,
+    "variant": "C3"
+  },
+  "base_config": {
+    "profile": "dorfer-full",
+    "seed": 42,
+    "device": "auto",
+    "threads": null,
+    "batch_size": 100,
+    "eval_batch_size": 256,
+    "epochs": 8,
+    "early_stop_patience": 3,
+    "lr": 0.002,
+    "weight_decay": 0.0001,
+    "grad_clip": 5.0,
+    "margin": 0.7,
+    "embed_dim": 32,
+    "channels": [
+      24,
+      48,
+      96,
+      96
+    ],
+    "use_cca": true,
+    "cca": {
+      "r1": 0.001,
+      "r2": 0.001,
+      "rT": 0.001,
+      "alpha": 0.05,
+      "warmup_steps": 200
+    },
+    "augment": {
+      "image_scale": [
+        0.95,
+        1.05
+      ],
+      "image_translate": 5.0,
+      "audio_time_shift": 1,
+      "audio_tempo_jitter": 0.1
+    },
+    "num_workers": 0,
+    "fast_dev": false,
+    "dropout": 0.0,
+    "mining": null,
+    "mining_k": 10,
+    "mining_warmup_epochs": 1
+  },
+  "git_commit": "a3f9b2f0e4a382bee5668ed2f49793c3e5dc0379"
+}

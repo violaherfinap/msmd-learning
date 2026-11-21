@@ -1,0 +1,5 @@
+metric,historical_pct,C1_pct,delta_pp,tolerance_pp,status
+val_mrr,1.0011,1.1683,0.1673,0.2,PASS
+snippet_a2s_R@1,0.0991,0.0991,0.0,n/a,n/a
+system_full_R@1,6.9252,7.5074,0.5823,1.0,PASS
+system_5cand_R@1,27.329,29.1254,1.7963,2.0,PASS

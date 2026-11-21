@@ -327,6 +327,7 @@ class PositivePairDataset(Dataset):
         image_translate: float = 5.0,
         audio_time_shift: int = 1,
         audio_tempo_jitter: float = 0.05,
+        return_group_ids: bool = False,
     ) -> None:
         self.crops = np.load(crops_path, mmap_mode="r")
         self.windows = np.load(windows_path, mmap_mode="r")
@@ -339,11 +340,14 @@ class PositivePairDataset(Dataset):
         self.image_translate = float(image_translate)
         self.audio_time_shift = int(audio_time_shift)
         self.audio_tempo_jitter = float(audio_tempo_jitter)
+        self.return_group_ids = bool(return_group_ids)
 
     def __len__(self) -> int:
         return len(self.crop_rows)
 
-    def __getitem__(self, index: int) -> tuple[torch.Tensor, torch.Tensor]:
+    def __getitem__(
+        self, index: int
+    ) -> tuple[torch.Tensor, torch.Tensor] | tuple[torch.Tensor, torch.Tensor, int]:
         crop = self.crops[int(self.crop_rows[index])]
         spec = self.windows[int(self.window_rows[index])]
         # Augment at the original 200x160 resolution so the paper's +/-5 px
@@ -367,7 +371,10 @@ class PositivePairDataset(Dataset):
                 tempo_jitter=self.audio_tempo_jitter,
             )
         # Tambahkan dimensi channel agar cocok dengan Conv2d: [1, 92, 42].
-        return image, audio.unsqueeze(0)
+        audio = audio.unsqueeze(0)
+        if self.return_group_ids:
+            return image, audio, int(self.crop_rows[index])
+        return image, audio
 
 
 class Task2Dataset(Dataset):
@@ -678,11 +685,13 @@ class DualEncoder(nn.Module):
         use_cca: bool = True,
         cca_kwargs: dict | None = None,
         channels: Sequence[int] = (24, 48, 96, 96),
+        dropout: float = 0.0,
     ) -> None:
         super().__init__()
         self.sheet = SheetEncoder(embed_dim=embed_dim, channels=channels)
         self.audio = AudioEncoder(embed_dim=embed_dim, channels=channels)
         self.cca = CCALayer(embed_dim, **(cca_kwargs or {})) if use_cca else None
+        self.dropout = float(dropout)
 
     def forward(
         self,
@@ -692,8 +701,18 @@ class DualEncoder(nn.Module):
         h_sheet = self.sheet(sheet_image)
         h_audio = self.audio(audio_spec)
         if self.cca is not None:
-            return self.cca(h_sheet, h_audio, update=self.training)
-        return F.normalize(h_sheet, dim=1), F.normalize(h_audio, dim=1)
+            z_sheet, z_audio = self.cca(h_sheet, h_audio, update=self.training)
+        else:
+            z_sheet = F.normalize(h_sheet, dim=1)
+            z_audio = F.normalize(h_audio, dim=1)
+        if self.dropout > 0.0:
+            z_sheet = F.normalize(
+                F.dropout(z_sheet, p=self.dropout, training=self.training), dim=1
+            )
+            z_audio = F.normalize(
+                F.dropout(z_audio, p=self.dropout, training=self.training), dim=1
+            )
+        return z_sheet, z_audio
 
 
 class RankingLoss(nn.Module):
@@ -711,6 +730,57 @@ class RankingLoss(nn.Module):
         mask = ~torch.eye(scores.shape[0], dtype=torch.bool, device=scores.device)
         losses = F.relu(self.margin - diagonal + scores)
         return losses[mask].mean()
+
+
+class HardNegativeRankingLoss(nn.Module):
+    """Pairwise ranking hinge loss with in-batch hard negative mining.
+
+    Negatives that share the same group id as the query are excluded. In the
+    Task 1 dataset the group id is the sheet crop row, so the two audio windows
+    of the same notehead are treated as alternative positives rather than
+    negatives. For the first ``warmup_epochs`` epochs all valid negatives are
+    used; afterwards only the ``k`` hardest valid negatives per query are used.
+    """
+
+    def __init__(
+        self,
+        margin: float = 0.7,
+        k: int = 10,
+        warmup_epochs: int = 1,
+    ) -> None:
+        super().__init__()
+        self.margin = float(margin)
+        self.k = int(k)
+        self.warmup_epochs = int(warmup_epochs)
+
+    def forward(
+        self,
+        z_sheet: torch.Tensor,
+        z_audio: torch.Tensor,
+        group_ids: torch.Tensor | Sequence[int],
+        epoch: int = 1,
+    ) -> torch.Tensor:
+        if z_sheet.shape[0] < 2:
+            return z_sheet.sum() * 0.0
+        scores = z_sheet @ z_audio.T
+        group_ids = torch.as_tensor(group_ids, device=scores.device)
+        valid = group_ids[:, None] != group_ids[None, :]
+        diagonal = scores.diagonal().unsqueeze(1)
+
+        if int(epoch) <= self.warmup_epochs:
+            losses = F.relu(self.margin - diagonal + scores)[valid]
+            return losses.mean() if losses.numel() else scores.sum() * 0.0
+
+        valid_counts = valid.sum(dim=1)
+        if int(valid_counts.min()) == 0:
+            losses = F.relu(self.margin - diagonal + scores)[valid]
+            return losses.mean() if losses.numel() else scores.sum() * 0.0
+
+        k = min(self.k, int(valid_counts.min()))
+        masked = scores.masked_fill(~valid, float("-inf"))
+        hard_negatives = masked.topk(k, dim=1).values
+        losses = F.relu(self.margin - diagonal + hard_negatives)
+        return losses.mean()
 
 
 class FusionClassifier(nn.Module):

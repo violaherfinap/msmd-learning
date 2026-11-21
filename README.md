@@ -17,6 +17,13 @@ loss, dan evaluasi model **tidak termasuk** dalam scope repo ini.
 
 - [`reports/PREPROCESSING_SUMMARY.md`](reports/PREPROCESSING_SUMMARY.md) — ringkasan lengkap
   preprocessing core, Task 1, Task 2, validasi, artefak, dan batasan.
+- [`reports/experiments/EXPERIMENT_REPORT.md`](reports/experiments/EXPERIMENT_REPORT.md) —
+  laporan hasil eksperimen Task 1 dan Task 2.
+- [`reports/experiments/FULL_CONFIG_TASK1_TASK2.md`](reports/experiments/FULL_CONFIG_TASK1_TASK2.md) —
+  konfigurasi lengkap Task 1 (C1-C4) dan Task 2 (baseline, robust mild/strong,
+  audio-only, cross-soundfont).
+- [`reports/experiments/RENCANA_TASK1_TASK2.md`](reports/experiments/RENCANA_TASK1_TASK2.md) —
+  rencana perbandingan Task 2 C1-C4, digabung dengan konfigurasi Task 1.
 - [`reports/HANDOFF_TEMAN.md`](reports/HANDOFF_TEMAN.md) — panduan memakai artefak,
   extract Release, verifikasi, dan loader untuk training.
 - [`reports/preprocessing_report_current.html`](reports/preprocessing_report_current.html) —
